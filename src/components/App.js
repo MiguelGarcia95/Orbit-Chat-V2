@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import {Switch, Route, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 class App extends React.Component {
   /* domain.com/ = redirect to root or login */
   render() {
     return (
       <section className="App">
-        
+        <p>ts</p>
       </section>
     );
   }
