@@ -1,21 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter} from 'react-router-dom';
+import {Provider} from 'react-redux';
+
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const Root = () => {
+  return (
+    <Provider>
+      <BrowserRouter>
+      <Switch>
+          {/* <Route extact path='/login' component={} />
+          <Route extact path='/register' component={} />
+          <Route extact path='/app' component={} />
+          <Route path='/app/:roomId' component={} />
+          <Route path='/app/:roomId/:channelId' component={} /> */}
+          <Route component={App} />
+        </Switch>
+      </BrowserRouter>
+    </Provider>
+  )
+}
 
-/* 
-
-Routes
----------
-domain.com/ = redirect to root or login
-domain.com/app = root
-          /login
-          /register
-          /app/room/{roomId} = room channels and categories
-          /app/room/{roomId}/{channelId} = channel messages 
-*/
+ReactDOM.render(<Root />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
