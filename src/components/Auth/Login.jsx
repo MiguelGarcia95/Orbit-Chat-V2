@@ -19,9 +19,21 @@ class Login extends React.Component {
               <Form.Field>
                 <Form.Input 
                 fluid
+                icon='mail'
+                iconPosition='left'
                 name='email' 
                 type='email'
                 placeholder='Email'
+                />
+              </Form.Field>
+              <Form.Field>
+                <Form.Input 
+                fluid
+                icon='lock'
+                iconPosition='left'
+                name='password' 
+                type='password'
+                placeholder='Password'
                 />
               </Form.Field>
             </Segment>
