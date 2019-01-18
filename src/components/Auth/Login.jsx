@@ -4,12 +4,16 @@ import { Grid, Form, Segment, Button, Header, Message, Image} from 'semantic-ui-
 
 class Login extends React.Component {
   state = {
-
+    email: '',
+    password: ''
   }
 
   onSubmit = () => {
     console.log(this.state)
   }
+
+  onChange = e => this.setState({[e.target.name]: e.target.value});
+  
 
   render() {
     return (
@@ -31,6 +35,7 @@ class Login extends React.Component {
                 name='email' 
                 type='email'
                 placeholder='Email'
+                onChange={this.onChange}
                 />
               </Form.Field>
               <Form.Field>
@@ -41,6 +46,7 @@ class Login extends React.Component {
                 name='password' 
                 type='password'
                 placeholder='Password'
+                onChange={this.onChange}                
                 />
               </Form.Field>
               <Button className='' color='violet' fluid size='large'>Submit</Button>
