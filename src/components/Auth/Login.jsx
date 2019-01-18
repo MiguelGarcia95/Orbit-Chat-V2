@@ -7,6 +7,10 @@ class Login extends React.Component {
 
   }
 
+  onSubmit = () => {
+    console.log(this.state)
+  }
+
   render() {
     return (
       <Grid textAlign='center' verticalAlign='middle' className='app'>
@@ -14,7 +18,7 @@ class Login extends React.Component {
           <Header as='h1' color='black' textAlign='center'>
             Login to Orbit
           </Header>
-          <Form size='large'>
+          <Form size='large' onSubmit={this.onSubmit}>
             <Segment raised >
               <Form.Field>
                 <Form.Input 
@@ -36,9 +40,10 @@ class Login extends React.Component {
                 placeholder='Password'
                 />
               </Form.Field>
+              <Button className='' color='violet' fluid size='large'>Submit</Button>
             </Segment>
           </Form>
-          <Message>Not a user? <Link to='/register'>Register</Link></Message>
+          <Message>Not a user? <Link to='/register'>Register</Link></Message> 
         </Grid.Column>
       </Grid>
     )
