@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { Grid, Form, Segment, Button, Header, Message, Image} from 'semantic-ui-react';
-import {createNewUser} from '../../redux/actions/authActions';
+// import {login} from '../../redux/actions/authActions';
 import {connect} from 'react-redux';
 
 class Login extends React.Component {

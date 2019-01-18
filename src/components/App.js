@@ -12,7 +12,7 @@ class App extends React.Component {
       }
     })
   }
-  /* domain.com/ = redirect to root or login */
+  
   render() {
     return (
       <section className="app">

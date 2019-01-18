@@ -3,6 +3,10 @@ import { dispatch } from 'rxjs/internal/observable/pairs';
 
 export const createNewUser = user => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
-    console.log(user)
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+
+    console.log('firebase: ', firebase)
+    console.log('firestore: ', firestore)
   }
 }
