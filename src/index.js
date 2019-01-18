@@ -17,7 +17,6 @@ class Root extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <React.Fragment>
         {/* <Route path='/app' component={RoomNavigation} /> */}
