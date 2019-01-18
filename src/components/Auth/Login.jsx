@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { Grid, Form, Segment, Button, Header, Message, Icon} from 'semantic-ui-react';
+import { Grid, Form, Segment, Button, Header, Message, Icon, Image} from 'semantic-ui-react';
 
 class Login extends React.Component {
   state = {
@@ -15,7 +15,10 @@ class Login extends React.Component {
     return (
       <Grid textAlign='center' verticalAlign='middle' className='app'>
         <Grid.Column width={4}>
-          <Header as='h1' color='black' textAlign='center'>
+          <Header as='h1' color='black' icon textAlign='center'>
+            <i className='icon'>
+              <Image src='/img/ChatLogoBLK.png' size='tiny' rounded centered />
+            </i>
             Login to Orbit
           </Header>
           <Form size='large' onSubmit={this.onSubmit}>
