@@ -1,2 +1,7 @@
-.App {
+html, body, .app {
+  height: 100vh;
+  height: 100%;
+  padding: 0;
 }
+
+/* .app {padding: 1rem !important;} */
