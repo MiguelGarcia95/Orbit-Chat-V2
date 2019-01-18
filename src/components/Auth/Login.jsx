@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { Grid, Form, Segment, Button, Header, Message, Icon, Image} from 'semantic-ui-react';
+import { Grid, Form, Segment, Button, Header, Message, Image} from 'semantic-ui-react';
 
 class Login extends React.Component {
   state = {
