@@ -26,6 +26,16 @@ class Register extends React.Component {
               <Form.Field>
                 <Form.Input 
                 fluid
+                icon='user'
+                iconPosition='left'
+                name='username' 
+                type='username'
+                placeholder='Username'
+                />
+              </Form.Field>
+              <Form.Field>
+                <Form.Input 
+                fluid
                 icon='mail'
                 iconPosition='left'
                 name='email' 
@@ -41,6 +51,16 @@ class Register extends React.Component {
                 name='password' 
                 type='password'
                 placeholder='Password'
+                />
+              </Form.Field>
+              <Form.Field>
+                <Form.Input 
+                fluid
+                icon='lock'
+                iconPosition='left'
+                name='confirmed_password' 
+                type='password'
+                placeholder='Confirm Password'
                 />
               </Form.Field>
               <Button className='' color='violet' fluid size='large'>Submit</Button>
