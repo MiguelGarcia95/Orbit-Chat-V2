@@ -4,14 +4,20 @@ import { Grid, Form, Segment, Button, Header, Message, Image} from 'semantic-ui-
 
 class Register extends React.Component {
   state = {
-
+    username: '',
+    email: '',
+    password: '',
+    confirmed_password: ''
   }
 
   onSubmit = () => {
     console.log(this.state)
   }
 
+  onChange = e => this.setState({[e.target.name]: e.target.value});
+
   render() {
+    const {username, email, password, confirmed_password} = this.state;
     return (
       <Grid textAlign='center' verticalAlign='middle' className='app'>
         <Grid.Column width={4}>
@@ -31,6 +37,8 @@ class Register extends React.Component {
                 name='username' 
                 type='username'
                 placeholder='Username'
+                onChange={this.onChange}
+                value={username}
                 />
               </Form.Field>
               <Form.Field>
@@ -41,6 +49,8 @@ class Register extends React.Component {
                 name='email' 
                 type='email'
                 placeholder='Email'
+                onChange={this.onChange}
+                value={email}
                 />
               </Form.Field>
               <Form.Field>
@@ -51,6 +61,8 @@ class Register extends React.Component {
                 name='password' 
                 type='password'
                 placeholder='Password'
+                onChange={this.onChange}
+                value={password}
                 />
               </Form.Field>
               <Form.Field>
@@ -61,6 +73,8 @@ class Register extends React.Component {
                 name='confirmed_password' 
                 type='password'
                 placeholder='Confirm Password'
+                onChange={this.onChange}
+                value={confirmed_password}
                 />
               </Form.Field>
               <Button className='' color='violet' fluid size='large'>Submit</Button>
