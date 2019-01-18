@@ -5,7 +5,7 @@ class App extends React.Component {
   /* domain.com/ = redirect to root or login */
   render() {
     return (
-      <section className="App">
+      <section className="app">
         <p>Chat Goes here</p>
       </section>
     );

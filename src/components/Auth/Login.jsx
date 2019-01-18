@@ -10,21 +10,19 @@ class Login extends React.Component {
   render() {
     return (
       <Grid textAlign='center' verticalAlign='middle' className='app'>
-        <Grid.Column width={6}>
-          <Header as='h1' color='black'>
+        <Grid.Column width={4}>
+          <Header as='h1' color='black' textAlign='center'>
             Login to Orbit
           </Header>
           <Form size='large'>
             <Segment raised >
               <Form.Field>
                 <Form.Input 
+                fluid
                 name='email' 
                 type='email'
                 placeholder='Email'
                 />
-              </Form.Field>
-              <Form.Field>
-                <Form.Input name='password' type='password' />
               </Form.Field>
             </Segment>
           </Form>
