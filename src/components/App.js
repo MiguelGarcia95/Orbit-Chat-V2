@@ -7,7 +7,7 @@ class App extends React.Component {
   render() {
     return (
       <section className="App">
-        <p>ts</p>
+        <p>Chat Goes here</p>
       </section>
     );
   }

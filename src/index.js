@@ -1,32 +1,60 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route, withRouter} from 'react-router-dom';
-import {Provider} from 'react-redux';
+import {Provider, connect} from 'react-redux';
+import 'semantic-ui-css/semantic.min.css'
+import * as serviceWorker from './serviceWorker';
 
 import store from './redux/store';
 import App from './components/App';
-import * as serviceWorker from './serviceWorker';
+import Login from './components/Auth/Login';
+import Register from './components/Auth/Register';
 
-const Root = () => {
+class Root extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        {/* <Route path='/app' component={RoomNavigation} /> */}
+        <Switch>
+            {/* 
+            <Route path='/app/:roomId' component={} />
+            <Route path='/app/:roomId/:channelId' component={} /> 
+          */}
+            <Route extact path='/app' component={App} />
+            <Route extact path='/login' component={Login} />
+            <Route extact path='/register' component={Register} />
+            <Route component={App} />
+          </Switch>
+      </React.Fragment>
+    )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    isLoading: state.auth.isLoading
+  }
+}
+
+const RootWithAuth = withRouter(connect(mapStateToProps)(Root))
+
+const RootWithRouter = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-      <Switch>
-          {/* <Route extact path='/login' component={} />
-          <Route extact path='/register' component={} />
-          <Route extact path='/app' component={} />
-          <Route path='/app/:roomId' component={} />
-          <Route path='/app/:roomId/:channelId' component={} /> */}
-          <Route component={App} />
-        </Switch>
+        <RootWithAuth />
       </BrowserRouter>
     </Provider>
   )
 }
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+ReactDOM.render(<RootWithRouter />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+// if (module.hot) {
+//   module.hot.accept();
+// }
