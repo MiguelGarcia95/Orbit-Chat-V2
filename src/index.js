@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Switch, Route, withRouter} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, withRouter, Redirect} from 'react-router-dom';
 import {Provider, connect} from 'react-redux';
 import 'semantic-ui-css/semantic.min.css'
 import * as serviceWorker from './serviceWorker';
@@ -9,6 +9,7 @@ import store from './redux/store';
 import App from './components/App';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
+import RoomNavbar from './components/RoomNavbar/RoomNavbar';
 
 class Root extends React.Component {
   state = {
@@ -19,7 +20,7 @@ class Root extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {/* <Route path='/app' component={RoomNavigation} /> */}
+        <Route path='/app' component={RoomNavbar} />
         <Switch>
             {/* 
             <Route path='/app/:roomId' component={} />
@@ -28,7 +29,8 @@ class Root extends React.Component {
             <Route extact path='/app' component={App} />
             <Route extact path='/login' component={Login} />
             <Route extact path='/register' component={Register} />
-            <Route component={App} />
+            <Route exact path="/" render={() => (<Redirect to="/app" />)} /> 
+            {/* <Route path="*" component={NoMatch} />    */}
           </Switch>
       </React.Fragment>
     )

@@ -1,5 +1,4 @@
 import * as actionTypes from '../actions/types';
-
 import md5 from 'md5';
 
 export const createNewUser = user => {
