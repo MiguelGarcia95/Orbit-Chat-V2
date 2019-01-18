@@ -11,7 +11,13 @@ import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 
 class Root extends React.Component {
+  state = {
+    currentRoom: '',
+    user: this.props.currentUser
+  }
+
   render() {
+    console.log(this.state)
     return (
       <React.Fragment>
         {/* <Route path='/app' component={RoomNavigation} /> */}
@@ -32,7 +38,8 @@ class Root extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    isLoading: state.auth.isLoading
+    isLoading: state.auth.isLoading,
+    currentUser:  state.auth.currentUser
   }
 }
 
