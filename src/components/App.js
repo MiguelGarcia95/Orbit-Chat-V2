@@ -5,14 +5,12 @@ import firebase from '../firebase';
 class App extends React.Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-
-      } else {
+      if (!user) {
         this.props.history.push('/login');
       }
     })
   }
-  
+
   render() {
     return (
       <section className="app">

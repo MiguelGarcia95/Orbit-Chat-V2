@@ -3,11 +3,20 @@ import {Link} from 'react-router-dom';
 import { Grid, Form, Segment, Button, Header, Message, Image} from 'semantic-ui-react';
 // import {login} from '../../redux/actions/authActions';
 import {connect} from 'react-redux';
+import firebase from '../../firebase';
 
 class Login extends React.Component {
   state = {
     email: '',
     password: ''
+  }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.props.history.push('/');
+      }
+    })
   }
 
   onSubmit = () => {

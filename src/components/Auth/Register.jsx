@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import { Grid, Form, Segment, Button, Header, Message, Image} from 'semantic-ui-react';
 import {createNewUser} from '../../redux/actions/authActions';
 import {connect} from 'react-redux';
+import firebase from '../../firebase';
 
 class Register extends React.Component {
   state = {
@@ -10,6 +11,14 @@ class Register extends React.Component {
     email: '',
     password: '',
     confirmed_password: ''
+  }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.props.history.push('/');
+      }
+    })
   }
 
   onSubmit = () => {

@@ -7,9 +7,6 @@ export const createNewUser = user => {
     const firebase = getFirebase();
     const firestore = getFirestore();
 
-    // console.log('firebase: ', firebase)
-    // console.log('firestore: ', firestore)
-
     firebase.auth()
       .createUserWithEmailAndPassword(user.email, user.password)
       .then(createdUser => {
