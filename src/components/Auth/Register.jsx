@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { Grid, Form, Segment, Button, Header, Message, Image} from 'semantic-ui-react';
+import {createNewUser} from '../../redux/actions/authActions';
+import {connect} from 'react-redux';
 
 class Register extends React.Component {
   state = {
@@ -11,7 +13,7 @@ class Register extends React.Component {
   }
 
   onSubmit = () => {
-    console.log(this.state)
+    this.props.createNewUser(this.state);
   }
 
   onChange = e => this.setState({[e.target.name]: e.target.value});
@@ -87,4 +89,10 @@ class Register extends React.Component {
   }
 }
 
-export default Register;
+const mapDispatchToProps = dispatch => {
+  return {
+    createNewUser: (user) => dispatch(createNewUser(user))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Register);
