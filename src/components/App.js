@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
 import firebase from '../firebase';
+import {Grid, Sidebar, Menu} from 'semantic-ui-react';
+
+import SideMenulPanel from './SideMenuPanel/SideMenuPanel';
 
 class App extends React.Component {
   componentDidMount() {
@@ -13,9 +16,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <section className="app">
-        <p>Chat Goes here</p>
-      </section>
+      <Grid>
+        <Sidebar 
+          width='very thin'
+          icon='labeled'
+          as={Menu}
+          inverted
+          vertical
+          visible
+        />
+        <SideMenulPanel />>
+      </Grid>
     );
   }
 }
