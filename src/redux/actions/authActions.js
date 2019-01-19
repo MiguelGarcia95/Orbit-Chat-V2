@@ -26,14 +26,14 @@ export const createNewUser = user => {
         dispatch({
           type: actionTypes.CREATE_NEW_USER,
           payload: {
-
+            authError: null
           }
         })
       }).catch(err => {
         dispatch({
           type: actionTypes.CREATE_NEW_USER_ERROR,
           payload: {
-
+            authError: err.message
           }
         })
       })
@@ -60,6 +60,6 @@ export const clearUser = () => {
 
 export const unsetUser = () => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
-    
+
   }
 }
