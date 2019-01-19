@@ -39,3 +39,27 @@ export const createNewUser = user => {
       })
   }
 }
+
+export const login = user => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+
+  }
+}
+
+export const setUser = user => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+
+  }
+}
+
+export const clearUser = () => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+
+  }
+}
+
+export const unsetUser = () => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    
+  }
+}

@@ -1,4 +1,5 @@
 export const SET_USER = 'SET_USER';
+export const UNSET_USER = 'UNSET_USER';
 export const CLEAR_USER = 'CLEAR_USER';
 
 export const CREATE_NEW_USER = 'CREATE_NEW_USER';
