@@ -2,7 +2,7 @@ import React from 'react';
 import {Grid, Sidebar, Menu, Button, Divider, Image, Modal, Input, Label, Segment} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {createNewChatroom} from '../../redux/actions/chatroomActions';
+import {createNewChatroom, getChatrooms} from '../../redux/actions/chatroomActions';
 
 class RoomNavbar extends React.Component {
   state = {
@@ -10,6 +10,10 @@ class RoomNavbar extends React.Component {
     modal: false,
     name: '',
     description: ''
+  }
+
+  componentDidMount() {
+    this.props.getChatrooms();
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -33,6 +37,7 @@ class RoomNavbar extends React.Component {
 
   render() {
     const {modal} = this.state;
+    console.log(this.props.chatrooms)
     return (
       <Grid columns='equal' >
         <Sidebar 
@@ -80,7 +85,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createNewChatroom: chat => dispatch(createNewChatroom(chat))
+    createNewChatroom: chat => dispatch(createNewChatroom(chat)),
+    getChatrooms: () => dispatch(getChatrooms())
   }
 }
 

@@ -4,7 +4,7 @@ export const createNewChatroom = (chatroom) => {
   return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
 
-    firestore.add('chatroom', {
+    firestore.add('chatrooms', {
       name: chatroom.name,
       description: chatroom.description,
       createdByUsername: chatroom.user.displayName,
@@ -34,7 +34,14 @@ export const createNewChatroom = (chatroom) => {
 
 export const getChatrooms = () => {
   return (dispatch, getState, {getFirestore}) => {
-    
+    const firestore = getFirestore();
+    firestore.collection('chatrooms').get().then(data => {
+      let chatrooms = [];
+      data.forEach(doc => {
+        chatrooms.push({id: doc.id, chatroom: doc.data()})
+      });
+      console.log(chatrooms);
+    })
   }
 }
 
