@@ -21,7 +21,7 @@ class RoomNavbar extends React.Component {
   }
 
   onSubmit = () => {
-    console.log(this.state);
+    this.props.createNewChatroom(this.state);
   }
 
   render() {
@@ -55,7 +55,7 @@ class RoomNavbar extends React.Component {
               <Button.Group attached='bottom'>
                 <Button negative onClick={this.closeModal}>Cancel</Button>
                 <Button.Or />
-                <Button positive onClick={this.onSubmit}>Save</Button>
+                <Button positive onClick={this.onSubmit}>Create</Button>
               </Button.Group>
             </Modal.Content>
           </Modal>
@@ -65,4 +65,10 @@ class RoomNavbar extends React.Component {
   }
 }
 
-export default RoomNavbar;
+const mapDispatchToProps = dispatch => {
+  return {
+    createNewChatroom: chat => dispatch(createNewChatroom(chat))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(RoomNavbar);
