@@ -29,7 +29,7 @@ class App extends React.Component {
         <Grid.Column style={{marginLeft: 320}}>
           <React.Fragment>t</React.Fragment>
         </Grid.Column>
-        <Grid.Column width={4}>
+        <Grid.Column width={2}>
           <React.Fragment>t</React.Fragment>
         </Grid.Column>
       </Grid>
