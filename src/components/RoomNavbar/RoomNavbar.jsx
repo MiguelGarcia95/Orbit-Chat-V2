@@ -6,9 +6,15 @@ import {createNewChatroom} from '../../redux/actions/chatroomActions';
 
 class RoomNavbar extends React.Component {
   state = {
+    user: null,
     modal: false,
     name: '',
     description: ''
+  }
+
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    this.setState({user: nextProps.user});
+    console.log('this ran, roomnavbar')
   }
 
   onChange = e => this.setState({[e.target.name]: e.target.value});
@@ -25,8 +31,8 @@ class RoomNavbar extends React.Component {
   }
 
   render() {
-    const {modal} = this.state;
-    console.log(this.props)
+    const {modal, user} = this.state;
+    console.log(user);
     return (
       <Grid columns='equal' >
         <Sidebar 

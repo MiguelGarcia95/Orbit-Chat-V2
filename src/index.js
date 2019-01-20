@@ -15,8 +15,7 @@ import RoomNavbar from './components/RoomNavbar/RoomNavbar';
 
 class Root extends React.Component {
   state = {
-    currentRoom: '',
-    user: this.props.currentUser
+    currentRoom: ''
   }
   
   componentDidMount() {
@@ -28,7 +27,7 @@ class Root extends React.Component {
   }
 
   render() {
-    console.log(this.props)
+    const {currentUser} = this.props;
     return (
       <React.Fragment>
         <Switch>
@@ -44,7 +43,7 @@ class Root extends React.Component {
           </Switch>
           {/* <Route path='/app' component={RoomNavbar} /> */}
           <Route path='/app'
-            render={(props) => <RoomNavbar {...props} user={this.state.user} />}
+            render={(props) => <RoomNavbar {...props} user={currentUser} />}
           />
       </React.Fragment>
     )
