@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Sidebar, Menu, Button, Divider, Image, Modal} from 'semantic-ui-react';
+import {Grid, Sidebar, Menu, Button, Divider, Image, Modal, Input, Label, Segment} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 
 class RoomNavbar extends React.Component {
@@ -32,8 +32,19 @@ class RoomNavbar extends React.Component {
           <Link to='/app'><Image src='/img/ChatLogo.png' size='mini' rounded centered /></Link>
           <Divider hidden />
           <Button icon='add' size='small' color='gray' inverted onClick={this.openModal} />
-          <Modal open={modal} onClose={this.closeModal} >
 
+          <Modal open={modal} onClose={this.closeModal} >
+            <Modal.Header>Create A New Chatroom</Modal.Header>
+            <Modal.Content>
+              <Segment>
+                <Label attached='top' color='black' >Name</Label>
+                <Input placeholder='Chatroom Name' fluid />
+              </Segment>
+              <Segment>
+                <Label attached='top' color='black' >Description</Label>
+                <Input placeholder='Chatroom Description' fluid/>
+              </Segment>
+            </Modal.Content>
           </Modal>
         </Sidebar>
       </Grid>
