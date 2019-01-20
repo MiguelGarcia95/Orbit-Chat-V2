@@ -19,7 +19,7 @@ class RoomNavbar extends React.Component {
   render() {
     const {modal} = this.state;
     return (
-      <Grid >
+      <Grid columns='equal' >
         <Sidebar 
           width='very thin'
           icon='labeled'

@@ -20,7 +20,6 @@ class Root extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Route path='/app' component={RoomNavbar} />
         <Switch>
             {/* 
             <Route path='/app/:roomId' component={} />
@@ -32,6 +31,7 @@ class Root extends React.Component {
             <Route exact path="/" render={() => (<Redirect to="/app" />)} /> 
             {/* <Route path="*" component={NoMatch} />    */}
           </Switch>
+          <Route path='/app' component={RoomNavbar} />
       </React.Fragment>
     )
   }

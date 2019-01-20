@@ -16,7 +16,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Grid>
+      <Grid columns='equal'>
         <Sidebar 
           width='very thin'
           icon='labeled'
@@ -25,7 +25,13 @@ class App extends React.Component {
           vertical
           visible
         />
-        <SideMenulPanel />>
+        <SideMenulPanel />
+        <Grid.Column style={{marginLeft: 320}}>
+          <React.Fragment>t</React.Fragment>
+        </Grid.Column>
+        <Grid.Column width={4}>
+          <React.Fragment>t</React.Fragment>
+        </Grid.Column>
       </Grid>
     );
   }
