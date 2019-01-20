@@ -28,7 +28,9 @@ const authReducer = (state = initialState, action) => {
       }
     case actionTypes.SET_USER:
       return {
-        ...state
+        ...state,
+        currentUser: action.payload.currentUser,
+        isLoading: action.payload.isLoading
       }
     case actionTypes.UNSET_USER:
       return {

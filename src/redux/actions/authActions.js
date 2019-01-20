@@ -47,8 +47,14 @@ export const login = user => {
 }
 
 export const setUser = user => {
-  return (dispatch, getState, {getFirebase, getFirestore}) => {
-
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.SET_USER,
+      payload: {
+        currentUser: user,
+        isLoading: false
+      }
+    })
   }
 }
 

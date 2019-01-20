@@ -2,7 +2,9 @@ import React from 'react';
 import './App.css';
 import firebase from '../firebase';
 import {Grid, Sidebar, Menu} from 'semantic-ui-react';
+import {connect} from 'react-redux';
 
+// import {setUser} from '../redux/actions/authActions';
 import SideMenulPanel from './SideMenuPanel/SideMenuPanel';
 
 class App extends React.Component {
@@ -37,4 +39,10 @@ class App extends React.Component {
   }
 }
 
-export default App;
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     setUser: user => dispatch(setUser(user))
+//   }
+// }
+
+export default connect()(App);
