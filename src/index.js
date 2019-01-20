@@ -18,6 +18,7 @@ class Root extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <React.Fragment>
         <Switch>
@@ -31,7 +32,10 @@ class Root extends React.Component {
             <Route exact path="/" render={() => (<Redirect to="/app" />)} /> 
             {/* <Route path="*" component={NoMatch} />    */}
           </Switch>
-          <Route path='/app' component={RoomNavbar} />
+          {/* <Route path='/app' component={RoomNavbar} /> */}
+          <Route path='/app'
+            render={(props) => <RoomNavbar {...props} user={this.state.user} />}
+          />
       </React.Fragment>
     )
   }

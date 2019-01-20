@@ -26,6 +26,7 @@ class RoomNavbar extends React.Component {
 
   render() {
     const {modal} = this.state;
+    console.log(this.props)
     return (
       <Grid columns='equal' >
         <Sidebar 
