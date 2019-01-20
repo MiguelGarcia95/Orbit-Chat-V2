@@ -6,7 +6,7 @@ import {createNewChatroom} from '../../redux/actions/chatroomActions';
 
 class RoomNavbar extends React.Component {
   state = {
-    modal: true,
+    modal: false,
     name: '',
     description: ''
   }
@@ -65,10 +65,16 @@ class RoomNavbar extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    chatrooms: state.chat.chatrooms
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     createNewChatroom: chat => dispatch(createNewChatroom(chat))
   }
 }
 
-export default connect(null, mapDispatchToProps)(RoomNavbar);
+export default connect(mapStateToProps, mapDispatchToProps)(RoomNavbar);

@@ -3,7 +3,8 @@ import * as actionTypes from '../actions/types';
 const initialState = {
   currentChatroom: null,
   isloading: true,
-  chatError: null
+  chatError: null,
+  chatrooms: []
 }
 
 const chatroomReducer = (state = initialState, action) => {
