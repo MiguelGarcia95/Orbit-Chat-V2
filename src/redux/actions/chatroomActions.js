@@ -40,7 +40,23 @@ export const getChatrooms = () => {
       data.forEach(doc => {
         chatrooms.push({id: doc.id, chatroom: doc.data()})
       });
-      console.log(chatrooms);
+      dispatch({
+        type: actionTypes.GET_CHATROOMS,
+        payload: {
+          chatError: null,
+          isLoading: false,
+          chatrooms: chatrooms
+        }
+      });
+    }).catch(err => {
+      dispatch({
+        type: actionTypes.GET_CHATROOMS_ERROR,
+        payload: {
+          chatError: err.message,
+          isLoading: false,
+          chatrooms: []
+        }
+      })
     })
   }
 }

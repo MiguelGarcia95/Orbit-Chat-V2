@@ -9,7 +9,8 @@ class RoomNavbar extends React.Component {
     user: null,
     modal: false,
     name: '',
-    description: ''
+    description: '',
+    chatrooms: this.props.chatrooms
   }
 
   componentDidMount() {
@@ -36,8 +37,8 @@ class RoomNavbar extends React.Component {
   }
 
   render() {
-    const {modal} = this.state;
-    console.log(this.props.chatrooms)
+    const {modal, chatrooms} = this.state;
+    console.log(chatrooms)
     return (
       <Grid columns='equal' >
         <Sidebar 
