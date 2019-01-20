@@ -20,6 +20,7 @@ class RoomNavbar extends React.Component {
   onChange = e => this.setState({[e.target.name]: e.target.value});
 
   openModal = () => this.setState({modal: true});
+
   closeModal = () => this.setState({modal: false});
 
   displayChatRooms = () => {
@@ -31,8 +32,7 @@ class RoomNavbar extends React.Component {
   }
 
   render() {
-    const {modal, user} = this.state;
-    console.log(user);
+    const {modal} = this.state;
     return (
       <Grid columns='equal' >
         <Sidebar 
