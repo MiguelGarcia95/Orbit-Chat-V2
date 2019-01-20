@@ -33,7 +33,13 @@ export const createNewChatroom = (chatroom) => {
 }
 
 export const getChatrooms = () => {
-  return (dispatch) => {
+  return (dispatch, getState, {getFirestore}) => {
+    
+  }
+}
+
+export const getChatroom = id => {
+  return (dispatch, getState, {getFirestore}) => {
     
   }
 }
