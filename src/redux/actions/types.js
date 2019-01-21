@@ -17,3 +17,5 @@ export const GET_CHATROOMS = 'GET_CHATROOMS';
 export const GET_CHATROOMS_ERROR = 'GET_CHATROOMS_ERROR';
 export const GET_CHATROOM = 'GET_CHATROOM';
 export const GET_CHATROOM_ERROR = 'GET_CHATROOM_ERROR';
+
+//Channel
