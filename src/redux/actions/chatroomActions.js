@@ -17,7 +17,7 @@ export const createNewChatroom = (chatroom) => {
         payload: {
           chatError: null,
           isLoading: false,
-          currentChatroom: createdChatroom._key.path.segments[1]
+          currentChatroomId: createdChatroom._key.path.segments[1]
         }
       })
     }).catch(err => {
@@ -26,7 +26,7 @@ export const createNewChatroom = (chatroom) => {
         payload: {
           chatError: err.message,
           isLoading: false,
-          currentChatroom: null
+          currentChatroomId: ''
         }
       })
     });

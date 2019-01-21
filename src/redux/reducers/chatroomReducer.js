@@ -2,6 +2,7 @@ import * as actionTypes from '../actions/types';
 
 const initialState = {
   currentChatroom: null,
+  currentChatroomId: '',
   isloading: true,
   chatError: null,
   chatrooms: []
@@ -14,14 +15,14 @@ const chatroomReducer = (state = initialState, action) => {
         ...state,
         chatError: action.payload.chatError,
         isLoading: action.payload.isLoading,
-        currentChatroom: action.payload.currentChatroom
+        currentChatroomId: action.payload.currentChatroomId
       }
     case actionTypes.CREATE_NEW_CHATROOM_ERROR: 
       return {
         ...state,
         chatError: action.payload.chatError,
         isLoading: action.payload.isLoading,
-        currentChatroom: action.payload.currentChatroom
+        currentChatroomId: action.payload.currentChatroomId
       }
     case actionTypes.GET_CHATROOMS: 
       return {
@@ -36,6 +37,20 @@ const chatroomReducer = (state = initialState, action) => {
         chatError: action.payload.chatError,
         isLoading: action.payload.isLoading,
         chatrooms: action.payload.chatrooms
+      }
+    case actionTypes.GET_CHATROOM: 
+      return {
+        ...state,
+        // chatError: action.payload.chatError,
+        // isLoading: action.payload.isLoading,
+        // chatrooms: action.payload.chatrooms
+      }
+    case actionTypes.GET_CHATROOM_ERROR: 
+      return {
+        ...state,
+        // chatError: action.payload.chatError,
+        // isLoading: action.payload.isLoading,
+        // chatrooms: action.payload.chatrooms
       }
     default:
       return state
