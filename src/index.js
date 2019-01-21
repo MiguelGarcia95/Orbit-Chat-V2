@@ -12,6 +12,7 @@ import App from './components/App';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import RoomNavbar from './components/RoomNavbar/RoomNavbar';
+import Chatroom from './components/Chatroom/Chatroom';
 
 class Root extends React.Component {
   state = {
@@ -32,9 +33,9 @@ class Root extends React.Component {
       <React.Fragment>
         <Switch>
             {/* 
-            <Route path='/app/:roomId' component={} />
             <Route path='/app/:roomId/:channelId' component={} /> 
           */}
+            <Route path='/app/:roomId' component={Chatroom} />
             <Route extact path='/app' component={App} />
             <Route extact path='/login' component={Login} />
             <Route extact path='/register' component={Register} />

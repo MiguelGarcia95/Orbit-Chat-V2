@@ -4,7 +4,6 @@ import firebase from '../firebase';
 import {Grid, Sidebar, Menu} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 
-// import {setUser} from '../redux/actions/authActions';
 import SideMenulPanel from './SideMenuPanel/SideMenuPanel';
 
 class App extends React.Component {
