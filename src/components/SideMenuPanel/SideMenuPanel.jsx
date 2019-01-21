@@ -8,7 +8,8 @@ class SideMenuPanel extends React.Component {
     name: '',
     description: '',
     user: null,
-    chatroom: null
+    chatroom: null,
+    isHome: this.props.isHome
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -28,7 +29,7 @@ class SideMenuPanel extends React.Component {
   }
 
   onSettingsSubmit = () => {
-    
+
   }
 
   render() {
