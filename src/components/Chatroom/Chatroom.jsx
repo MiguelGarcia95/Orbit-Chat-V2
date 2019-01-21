@@ -18,7 +18,7 @@ class Chatroom extends React.Component {
   }
 
   render() {
-    console.log(this.props.chatroom)
+    const {chatroom} = this.props;
     return (
       <Grid columns='equal'>
         <Sidebar 
@@ -29,7 +29,9 @@ class Chatroom extends React.Component {
           vertical
           visible
         />
-        <SideMenulPanel />
+        <SideMenulPanel 
+          chatroom={chatroom}
+        />
         <Grid.Column style={{marginLeft: 320}}>
           <React.Fragment>t</React.Fragment>
         </Grid.Column>
