@@ -18,7 +18,7 @@ class RoomNavbar extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    this.setState({user: nextProps.user});
+    this.setState({user: nextProps.user, chatrooms: nextProps.chatrooms});
     console.log('this ran, roomnavbar')
   }
 
@@ -28,8 +28,19 @@ class RoomNavbar extends React.Component {
 
   closeModal = () => this.setState({modal: false});
 
-  displayChatRooms = () => {
-
+  displayChatRooms = (chatrooms) => {
+    return (
+      chatrooms.map(chatroom => {
+        return (
+          <React.Fragment key={chatroom.id}>
+            <Divider  />
+            <Link to={`/app/${chatroom.id}`}>
+              <Image title={chatroom.chatroom.name} src={chatroom.chatroom.logo} circular />
+            </Link>
+          </React.Fragment>
+        )
+      })
+    )
   }
 
   onSubmit = () => {
@@ -38,7 +49,6 @@ class RoomNavbar extends React.Component {
 
   render() {
     const {modal, chatrooms} = this.state;
-    console.log(chatrooms)
     return (
       <Grid columns='equal' >
         <Sidebar 
@@ -53,6 +63,8 @@ class RoomNavbar extends React.Component {
           <Link to='/app'><Image src='/img/ChatLogo.png' size='mini' rounded centered /></Link>
           <Divider hidden />
           <Button icon='add' size='small' color='grey' inverted onClick={this.openModal} />
+          
+          {this.displayChatRooms(chatrooms)}
 
           <Modal open={modal} onClose={this.closeModal} >
             <Modal.Header>Create A New Chatroom</Modal.Header>

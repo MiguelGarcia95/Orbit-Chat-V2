@@ -7,6 +7,7 @@ export const createNewChatroom = (chatroom) => {
     firestore.add('chatrooms', {
       name: chatroom.name,
       description: chatroom.description,
+      logo: chatroom.user.photoURL,
       createdByUsername: chatroom.user.displayName,
       createdByUid: chatroom.user.uid,
       createdDate: firestore.FieldValue.serverTimestamp()
