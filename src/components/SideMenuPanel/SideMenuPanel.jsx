@@ -50,11 +50,11 @@ class SideMenuPanel extends React.Component {
             <Modal.Content>
               <Segment>
                 <Label attached='top' color='black' >Name</Label>
-                <Input fluid placeholder='Chatroom Name' name='name' onChange={this.onChange} />
+                <Input fluid placeholder='Category Name' name='name' onChange={this.onChange} />
               </Segment>
               <Segment>
                 <Label attached='top' color='black' >Description</Label>
-                <Input fluid placeholder='Chatroom Description' name='description' onChange={this.onChange} />
+                <Input fluid placeholder='Category Description' name='description' onChange={this.onChange} />
               </Segment>
               <Button.Group attached='bottom'>
                 <Button negative onClick={this.closeModal}>Cancel</Button>
