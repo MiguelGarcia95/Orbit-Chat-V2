@@ -3,7 +3,8 @@ import {Menu, Grid, Container, Icon, Dropdown, Image, Modal, Segment, Label, Inp
 
 class SideMenuPanel extends React.Component {
   state = {
-    modal: false,
+    categoryModal: false,
+    settingsModal: false,
     name: '',
     description: '',
     user: null,
@@ -16,16 +17,16 @@ class SideMenuPanel extends React.Component {
 
   onChange = e => this.setState({[e.target.name]: e.target.value});
 
-  openModal = () => this.setState({modal: true});
+  openCategoryModal = () => this.setState({categoryModal: true});
 
-  closeModal = () => this.setState({modal: false});
+  closeCategoryModal = () => this.setState({categoryModal: false});
 
   onSubmit = () => {
     this.props.createNewCategory(this.state);
   }
 
   render() {
-    const  {modal, chatroom, user} = this.state;
+    const  {categoryModal, chatroom, user, settingsModal} = this.state;
     return (
       <Menu
       size='large' 
@@ -46,8 +47,8 @@ class SideMenuPanel extends React.Component {
                 <Grid.Column verticalAlign='middle' width={2}>
                   <Container fluid>
                     <Dropdown icon='plus'>
-                      <Dropdown.Menu>
-                        <Dropdown.Item text='New Category' onClick={this.openModal} />
+                      <Dropdown.Menu direction='left' >
+                        <Dropdown.Item text='New Category' onClick={this.openCategoryModal} />
                       </Dropdown.Menu>
                     </Dropdown>
                   </Container>
@@ -56,7 +57,8 @@ class SideMenuPanel extends React.Component {
             </Grid>
           )}
         />
-        <Modal open={modal} onClose={this.closeModal} >
+
+        <Modal open={categoryModal} onClose={this.closeModal} >
           <Modal.Header>Create A New Category</Modal.Header>
           <Modal.Content>
             <Segment>
@@ -64,7 +66,7 @@ class SideMenuPanel extends React.Component {
               <Input fluid placeholder='Category Name' name='name' onChange={this.onChange} />
             </Segment>
             <Button.Group attached='bottom'>
-              <Button negative onClick={this.closeModal}>Cancel</Button>
+              <Button negative onClick={this.closeCategoryModal}>Cancel</Button>
               <Button.Or />
               <Button positive onClick={this.onSubmit}>Create</Button>
             </Button.Group>
@@ -89,13 +91,29 @@ class SideMenuPanel extends React.Component {
                 </Grid.Column>
                 <Grid.Column verticalAlign="middle">
                   <Container fluid>
-                    <Icon name='cog' size='large' />
+                    <Icon name='cog' size='large' style={{cursor: 'pointer'}} />
                   </Container>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
           )}
         />
+
+        <Modal open={settingsModal} onClose={this.closeModal} >
+          <Modal.Header>Create A New Category</Modal.Header>
+          <Modal.Content>
+            <Segment>
+              <Label attached='top' color='black' >Name</Label>
+              <Input fluid placeholder='Category Name' name='name' onChange={this.onChange} />
+            </Segment>
+            <Button.Group attached='bottom'>
+              <Button negative onClick={this.closeCategoryModal}>Cancel</Button>
+              <Button.Or />
+              <Button positive onClick={this.onSubmit}>Create</Button>
+            </Button.Group>
+          </Modal.Content>
+        </Modal>
+
       </Menu>
     )
   }
