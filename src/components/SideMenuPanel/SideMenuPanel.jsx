@@ -11,24 +11,56 @@ class SideMenuPanel extends React.Component {
       vertical
       >
         <Menu.Header 
-          as='h3'
+          as='div'
           className='Header__header'
-          content={chatroom && chatroom.chatroom.name}
+          content={chatroom && (
+            <Grid>
+              <Grid.Row columns='2'>
+                <Grid.Column verticalAlign='middle' width={12}>
+                  <Container fluid>
+                    {chatroom.chatroom.name}
+                  </Container>
+                </Grid.Column>
+                <Grid.Column verticalAlign='middle' width={2}>
+                  <Container fluid>
+                    <Icon name='plus' size='small' />
+                  </Container>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          )}
         />
 
+{/* <Dropdown text='File'>
+    <Dropdown.Menu>
+      <Dropdown.Item text='New' />
+      <Dropdown.Item text='Open...' description='ctrl + o' />
+      <Dropdown.Item text='Save as...' description='ctrl + s' />
+      <Dropdown.Item text='Rename' description='ctrl + r' />
+      <Dropdown.Item text='Make a copy' />
+      <Dropdown.Item icon='folder' text='Move to folder' />
+      <Dropdown.Item icon='trash' text='Move to trash' />
+      <Dropdown.Divider />
+      <Dropdown.Item text='Download As...' />
+      <Dropdown.Item text='Publish To Web' />
+      <Dropdown.Item text='E-mail Collaborators' />
+    </Dropdown.Menu>
+  </Dropdown> */}
+
+        {/* Display Chatroom categories + channels */}
+
         <Menu.Header 
-          as='p'
+          as='div'
           className='Header__footer'
-          icon
           content={user && (
             <Grid columns='equal' >
               <Grid.Row>
                 <Grid.Column>
-                  <Image title={user.displayName} src={user.photoURL} size="mini" spaced='right' avatar circular />
+                  <Image src={user.photoURL} size="mini" spaced='right' avatar circular />
                 </Grid.Column>
                 <Grid.Column verticalAlign="middle">
                   <Container fluid>
-                    <p>{user.displayName}</p>
+                    {user.displayName}
                   </Container>
                 </Grid.Column>
                 <Grid.Column verticalAlign="middle">
