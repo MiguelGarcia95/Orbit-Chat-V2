@@ -2,6 +2,14 @@ import React from 'react';
 import {Menu, Grid, Container, Icon, Dropdown, Image} from 'semantic-ui-react';
 
 class SideMenuPanel extends React.Component {
+  state = {
+    modal: false
+  }
+
+  openModal = () => this.setState({modal: true});
+
+  closeModal = () => this.setState({modal: false});
+
   render() {
     const {chatroom, user} = this.props;
     return (
@@ -23,7 +31,13 @@ class SideMenuPanel extends React.Component {
                 </Grid.Column>
                 <Grid.Column verticalAlign='middle' width={2}>
                   <Container fluid>
-                    <Icon name='plus' size='small' />
+                    <Dropdown icon='plus'>
+                      <Dropdown.Menu>
+                        <Dropdown.Item text='New Category' onClick={this.openModal} />
+                        {/* <Dropdown.Divider /> */}
+                        {/* <Dropdown.Item text='E-mail Collaborators' /> */}
+                      </Dropdown.Menu>
+                    </Dropdown>
                   </Container>
                 </Grid.Column>
               </Grid.Row>
