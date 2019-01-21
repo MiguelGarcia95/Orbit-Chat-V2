@@ -18,6 +18,7 @@ class Chatroom extends React.Component {
   }
 
   render() {
+    console.log(this.props.chatroom)
     return (
       <Grid columns='equal'>
         <Sidebar 
@@ -40,10 +41,16 @@ class Chatroom extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    chatroom: state.chat.currentChatroom
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     getChatroom: id => dispatch(getChatroom(id))
   }
 }
 
-export default connect(null, mapDispatchToProps)(Chatroom);
+export default connect(mapStateToProps, mapDispatchToProps)(Chatroom);
