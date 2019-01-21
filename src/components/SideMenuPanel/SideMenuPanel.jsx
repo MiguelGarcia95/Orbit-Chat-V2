@@ -14,6 +14,10 @@ class SideMenuPanel extends React.Component {
 
   closeModal = () => this.setState({modal: false});
 
+  onSubmit = () => {
+
+  }
+
   render() {
     const {chatroom, user} = this.props;
     const  {modal} = this.state;
@@ -61,7 +65,7 @@ class SideMenuPanel extends React.Component {
             <Button.Group attached='bottom'>
               <Button negative onClick={this.closeModal}>Cancel</Button>
               <Button.Or />
-              <Button positive >Create</Button>
+              <Button positive onClick={this.onSubmit}>Create</Button>
             </Button.Group>
           </Modal.Content>
         </Modal>
