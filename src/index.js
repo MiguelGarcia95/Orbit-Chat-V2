@@ -35,7 +35,10 @@ class Root extends React.Component {
             {/* 
             <Route path='/app/:roomId/:channelId' component={} /> 
           */}
-            <Route path='/app/:roomId' component={Chatroom} />
+            {/* <Route path='/app/:roomId' component={Chatroom} /> */}
+            <Route path='/app/:roomId'
+              render={(props) => <Chatroom {...props} user={currentUser} />}
+            />
             <Route extact path='/app' component={App} />
             <Route extact path='/login' component={Login} />
             <Route extact path='/register' component={Register} />

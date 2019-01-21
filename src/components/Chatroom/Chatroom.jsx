@@ -3,11 +3,15 @@ import firebase from '../../firebase';
 import {Grid, Sidebar, Menu} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 
-// import {setUser} from '../redux/actions/authActions';
 import {getChatroom} from '../../redux/actions/chatroomActions';
 import SideMenulPanel from '../SideMenuPanel/SideMenuPanel';
 
 class Chatroom extends React.Component {
+  state = {
+    chatroom: null,
+    user: null
+  }
+
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
@@ -17,8 +21,13 @@ class Chatroom extends React.Component {
     this.props.getChatroom(this.props.match.params.roomId);
   }
 
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    this.setState({user: nextProps.user, chatroom: nextProps.chatroom});
+    console.log('this ran, roomnavbar')
+  }
+
   render() {
-    const {chatroom} = this.props;
+    const {chatroom, user} = this.state;
     return (
       <Grid columns='equal'>
         <Sidebar 
@@ -31,6 +40,7 @@ class Chatroom extends React.Component {
         />
         <SideMenulPanel 
           chatroom={chatroom}
+          user={user}
         />
         <Grid.Column style={{marginLeft: 320}}>
           <React.Fragment>t</React.Fragment>
