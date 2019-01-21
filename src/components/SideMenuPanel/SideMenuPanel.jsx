@@ -3,7 +3,9 @@ import {Menu, Grid, Container, Icon, Dropdown, Image, Modal, Segment, Label, Inp
 
 class SideMenuPanel extends React.Component {
   state = {
-    modal: false
+    modal: false,
+    name: '',
+    description: ''
   }
 
   onChange = e => this.setState({[e.target.name]: e.target.value});
@@ -46,39 +48,23 @@ class SideMenuPanel extends React.Component {
           )}
         />
         <Modal open={modal} onClose={this.closeModal} >
-            <Modal.Header>Create A New Category</Modal.Header>
-            <Modal.Content>
-              <Segment>
-                <Label attached='top' color='black' >Name</Label>
-                <Input fluid placeholder='Category Name' name='name' onChange={this.onChange} />
-              </Segment>
-              <Segment>
-                <Label attached='top' color='black' >Description</Label>
-                <Input fluid placeholder='Category Description' name='description' onChange={this.onChange} />
-              </Segment>
-              <Button.Group attached='bottom'>
-                <Button negative onClick={this.closeModal}>Cancel</Button>
-                <Button.Or />
-                <Button positive >Create</Button>
-              </Button.Group>
-            </Modal.Content>
-          </Modal>
-
-{/* <Dropdown text='File'>
-    <Dropdown.Menu>
-      <Dropdown.Item text='New' />
-      <Dropdown.Item text='Open...' description='ctrl + o' />
-      <Dropdown.Item text='Save as...' description='ctrl + s' />
-      <Dropdown.Item text='Rename' description='ctrl + r' />
-      <Dropdown.Item text='Make a copy' />
-      <Dropdown.Item icon='folder' text='Move to folder' />
-      <Dropdown.Item icon='trash' text='Move to trash' />
-      <Dropdown.Divider />
-      <Dropdown.Item text='Download As...' />
-      <Dropdown.Item text='Publish To Web' />
-      <Dropdown.Item text='E-mail Collaborators' />
-    </Dropdown.Menu>
-  </Dropdown> */}
+          <Modal.Header>Create A New Category</Modal.Header>
+          <Modal.Content>
+            <Segment>
+              <Label attached='top' color='black' >Name</Label>
+              <Input fluid placeholder='Category Name' name='name' onChange={this.onChange} />
+            </Segment>
+            <Segment>
+              <Label attached='top' color='black' >Description</Label>
+              <Input fluid placeholder='Category Description' name='description' onChange={this.onChange} />
+            </Segment>
+            <Button.Group attached='bottom'>
+              <Button negative onClick={this.closeModal}>Cancel</Button>
+              <Button.Or />
+              <Button positive >Create</Button>
+            </Button.Group>
+          </Modal.Content>
+        </Modal>
 
         {/* Display Chatroom categories + channels */}
 
