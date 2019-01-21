@@ -1,5 +1,5 @@
 import React from 'react';
-import {Menu, Text, Grid, Header, Icon, Dropdown, Image} from 'semantic-ui-react';
+import {Menu, Grid, Container, Icon, Dropdown, Image} from 'semantic-ui-react';
 
 class SideMenuPanel extends React.Component {
   render() {
@@ -21,24 +21,22 @@ class SideMenuPanel extends React.Component {
           className='Header__footer'
           icon
           content={user && (
-            // <React.Fragment>
-            //   <Image title={user.displayName} src={user.photoURL} size="mini" spaced='right' avatar circular />
-            //   {' '}
-            //   {/* <p style={{display: 'inline'}}>{user.displayName}</p> */}
-            //   <span>{user.displayName} <Icon name='cog' /></span>
-            //   {' '}
-            //   {/*  */}
-            // </React.Fragment>
             <Grid columns='equal' >
-              <Grid.Column>
-                <Image title={user.displayName} src={user.photoURL} size="mini" spaced='right' avatar circular />
-              </Grid.Column>
-              <Grid.Column>
-                {user.displayName}
-              </Grid.Column>
-              <Grid.Column>
-                <Icon name='cog' />
-              </Grid.Column>
+              <Grid.Row>
+                <Grid.Column>
+                  <Image title={user.displayName} src={user.photoURL} size="mini" spaced='right' avatar circular />
+                </Grid.Column>
+                <Grid.Column verticalAlign="middle">
+                  <Container fluid>
+                    <p>{user.displayName}</p>
+                  </Container>
+                </Grid.Column>
+                <Grid.Column verticalAlign="middle">
+                  <Container fluid>
+                    <Icon name='cog' size='large' />
+                  </Container>
+                </Grid.Column>
+              </Grid.Row>
             </Grid>
           )}
         />
