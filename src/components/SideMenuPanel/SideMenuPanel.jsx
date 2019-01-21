@@ -1,12 +1,12 @@
 import React from 'react';
 import {Menu, Grid, Container, Icon, Dropdown, Image, Modal, Segment, Label, Input, Button} from 'semantic-ui-react';
+import HeaderFooter from '../Layout/HeaderFooter';
 
 class SideMenuPanel extends React.Component {
   state = {
     categoryModal: false,
     settingsModal: false,
-    name: '',
-    description: '',
+    categoryName: '',
     user: null,
     chatroom: null,
     isHome: this.props.isHome
@@ -40,29 +40,11 @@ class SideMenuPanel extends React.Component {
       fixed='left'
       vertical
       >
-        <Menu.Header 
-          as='div'
-          className='Header__header'
-          content={chatroom && (
-            <Grid>
-              <Grid.Row columns='2'>
-                <Grid.Column verticalAlign='middle' width={12}>
-                  <Container fluid>
-                    {chatroom.chatroom.name}
-                  </Container>
-                </Grid.Column>
-                <Grid.Column verticalAlign='middle' width={2}>
-                  <Container fluid>
-                    <Dropdown icon='plus'>
-                      <Dropdown.Menu direction='left' >
-                        <Dropdown.Item text='New Category' onClick={this.openCategoryModal} />
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  </Container>
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-          )}
+
+        <HeaderFooter 
+          chatroom={chatroom} 
+          openModal={this.openCategoryModal}
+          name={chatroom && chatroom.chatroom.name}
         />
 
         <Modal open={categoryModal} onClose={this.closeModal} >
@@ -70,7 +52,7 @@ class SideMenuPanel extends React.Component {
           <Modal.Content>
             <Segment>
               <Label attached='top' color='black' >Name</Label>
-              <Input fluid placeholder='Category Name' name='name' onChange={this.onChange} />
+              <Input fluid placeholder='Category Name' name='categoryName' onChange={this.onChange} />
             </Segment>
             <Button.Group attached='bottom'>
               <Button negative onClick={this.closeCategoryModal}>Cancel</Button>
@@ -111,7 +93,7 @@ class SideMenuPanel extends React.Component {
           {/* <Modal.Content style={{background: '#232323'}} > */}
           <Modal.Content>
             <Segment>
-              <Label attached='top' color='transparent' >Name</Label>
+              <Label attached='top' >Name</Label>
               <Input fluid placeholder='Category Name' name='name' onChange={this.onChange} />
             </Segment>
             <Button.Group attached='bottom'>
