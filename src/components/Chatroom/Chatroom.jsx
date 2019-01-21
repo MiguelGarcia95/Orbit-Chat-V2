@@ -43,6 +43,7 @@ class Chatroom extends React.Component {
           chatroom={chatroom}
           user={user}
           createNewCategory={createNewCategory}
+          isHome={false}
         />
         <Grid.Column style={{marginLeft: 320}}>
           <React.Fragment>t</React.Fragment>

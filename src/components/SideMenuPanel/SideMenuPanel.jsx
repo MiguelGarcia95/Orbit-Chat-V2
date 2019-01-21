@@ -33,7 +33,7 @@ class SideMenuPanel extends React.Component {
   }
 
   render() {
-    const  {categoryModal, chatroom, user, settingsModal} = this.state;
+    const  {categoryModal, chatroom, user, settingsModal, isHome} = this.state;
     return (
       <Menu
       size='large' 
@@ -41,11 +41,13 @@ class SideMenuPanel extends React.Component {
       vertical
       >
 
+      {!isHome && (
         <HeaderFooter 
           chatroom={chatroom} 
           openModal={this.openCategoryModal}
           name={chatroom && chatroom.chatroom.name}
         />
+      )}
 
         <Modal open={categoryModal} onClose={this.closeModal} >
           <Modal.Header>Create A New Category</Modal.Header>
@@ -64,29 +66,33 @@ class SideMenuPanel extends React.Component {
 
         {/* Display Chatroom categories + channels */}
 
-        <Menu.Header 
-          as='div'
-          className='Header__footer'
-          content={user && (
-            <Grid columns='equal' >
-              <Grid.Row>
-                <Grid.Column>
-                  <Image src={user.photoURL} size="mini" spaced='right' avatar circular />
-                </Grid.Column>
-                <Grid.Column verticalAlign="middle">
-                  <Container fluid>
-                    {user.displayName}
-                  </Container>
-                </Grid.Column>
-                <Grid.Column verticalAlign="middle">
-                  <Container fluid>
-                    <Icon name='cog' size='large' style={{cursor: 'pointer'}} onClick={this.openSettingsModal} />
-                  </Container>
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-          )}
-        />
+        {!isHome && (
+          <Menu.Header 
+            as='div'
+            className='Header__footer'
+            content={user && (
+              <Grid columns='equal' >
+                <Grid.Row>
+                  <Grid.Column>
+                    <Image src={user.photoURL} size="mini" spaced='right' avatar circular />
+                  </Grid.Column>
+                  <Grid.Column verticalAlign="middle">
+                    <Container fluid>
+                      {user.displayName}
+                    </Container>
+                  </Grid.Column>
+                  <Grid.Column verticalAlign="middle">
+                    <Container fluid>
+                      <Icon name='cog' size='large' style={{cursor: 'pointer'}} onClick={this.openSettingsModal} />
+                    </Container>
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            )}
+          />
+        )}
+
+        
 
         <Modal size='small' basic centered={false} open={settingsModal} onClose={this.closeSettingsModal} >
           <Modal.Header>Settings</Modal.Header>
