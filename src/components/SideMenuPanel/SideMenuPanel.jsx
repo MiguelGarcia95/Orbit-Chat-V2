@@ -18,11 +18,17 @@ class SideMenuPanel extends React.Component {
   onChange = e => this.setState({[e.target.name]: e.target.value});
 
   openCategoryModal = () => this.setState({categoryModal: true});
-
   closeCategoryModal = () => this.setState({categoryModal: false});
+
+  openSettingsModal = () => this.setState({settingsModal: true});
+  closeSettingsModal = () => this.setState({settingsModal: false});
 
   onSubmit = () => {
     this.props.createNewCategory(this.state);
+  }
+
+  onSettingsSubmit = () => {
+    
   }
 
   render() {
@@ -91,7 +97,7 @@ class SideMenuPanel extends React.Component {
                 </Grid.Column>
                 <Grid.Column verticalAlign="middle">
                   <Container fluid>
-                    <Icon name='cog' size='large' style={{cursor: 'pointer'}} />
+                    <Icon name='cog' size='large' style={{cursor: 'pointer'}} onClick={this.openSettingsModal} />
                   </Container>
                 </Grid.Column>
               </Grid.Row>
@@ -99,17 +105,18 @@ class SideMenuPanel extends React.Component {
           )}
         />
 
-        <Modal open={settingsModal} onClose={this.closeModal} >
-          <Modal.Header>Create A New Category</Modal.Header>
+        <Modal size='small' basic centered={false} open={settingsModal} onClose={this.closeSettingsModal} >
+          <Modal.Header>Settings</Modal.Header>
+          {/* <Modal.Content style={{background: '#232323'}} > */}
           <Modal.Content>
             <Segment>
-              <Label attached='top' color='black' >Name</Label>
+              <Label attached='top' color='transparent' >Name</Label>
               <Input fluid placeholder='Category Name' name='name' onChange={this.onChange} />
             </Segment>
             <Button.Group attached='bottom'>
-              <Button negative onClick={this.closeCategoryModal}>Cancel</Button>
+              <Button negative onClick={this.closeSettingsModal}>Cancel</Button>
               <Button.Or />
-              <Button positive onClick={this.onSubmit}>Create</Button>
+              <Button positive onClick={this.onSettingsSubmit}>Save</Button>
             </Button.Group>
           </Modal.Content>
         </Modal>
