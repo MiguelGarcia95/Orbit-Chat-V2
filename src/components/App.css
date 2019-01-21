@@ -7,3 +7,23 @@ html, body, .app {
 }
 
 /* .app {padding: 1rem !important;} */
+
+.Header__header {
+  text-align: center; 
+  padding: 10px 0px; 
+  background: #232323; 
+  color: white; 
+  position: absolute; 
+  top: 0; left: 0;
+  width: 100%; 
+}
+
+.Header__footer {
+  text-align: center; 
+  padding: 10px 0px; 
+  background: #232323; 
+  color: white; 
+  position: absolute; 
+  bottom: 0; left: 0;
+  width: 100%; 
+}
