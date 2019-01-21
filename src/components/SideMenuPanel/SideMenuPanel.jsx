@@ -1,10 +1,12 @@
 import React from 'react';
-import {Menu, Grid, Container, Icon, Dropdown, Image} from 'semantic-ui-react';
+import {Menu, Grid, Container, Icon, Dropdown, Image, Modal, Segment, Label, Input, Button} from 'semantic-ui-react';
 
 class SideMenuPanel extends React.Component {
   state = {
     modal: false
   }
+
+  onChange = e => this.setState({[e.target.name]: e.target.value});
 
   openModal = () => this.setState({modal: true});
 
@@ -12,6 +14,7 @@ class SideMenuPanel extends React.Component {
 
   render() {
     const {chatroom, user} = this.props;
+    const  {modal} = this.state;
     return (
       <Menu
       size='large' 
@@ -34,8 +37,6 @@ class SideMenuPanel extends React.Component {
                     <Dropdown icon='plus'>
                       <Dropdown.Menu>
                         <Dropdown.Item text='New Category' onClick={this.openModal} />
-                        {/* <Dropdown.Divider /> */}
-                        {/* <Dropdown.Item text='E-mail Collaborators' /> */}
                       </Dropdown.Menu>
                     </Dropdown>
                   </Container>
@@ -44,6 +45,24 @@ class SideMenuPanel extends React.Component {
             </Grid>
           )}
         />
+        <Modal open={modal} onClose={this.closeModal} >
+            <Modal.Header>Create A New Category</Modal.Header>
+            <Modal.Content>
+              <Segment>
+                <Label attached='top' color='black' >Name</Label>
+                <Input fluid placeholder='Chatroom Name' name='name' onChange={this.onChange} />
+              </Segment>
+              <Segment>
+                <Label attached='top' color='black' >Description</Label>
+                <Input fluid placeholder='Chatroom Description' name='description' onChange={this.onChange} />
+              </Segment>
+              <Button.Group attached='bottom'>
+                <Button negative onClick={this.closeModal}>Cancel</Button>
+                <Button.Or />
+                <Button positive >Create</Button>
+              </Button.Group>
+            </Modal.Content>
+          </Modal>
 
 {/* <Dropdown text='File'>
     <Dropdown.Menu>
