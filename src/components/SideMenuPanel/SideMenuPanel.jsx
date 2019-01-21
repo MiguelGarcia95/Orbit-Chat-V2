@@ -5,7 +5,13 @@ class SideMenuPanel extends React.Component {
   state = {
     modal: false,
     name: '',
-    description: ''
+    description: '',
+    user: null,
+    chatroom: null
+  }
+
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    this.setState({user: nextProps.user, chatroom: nextProps.chatroom});
   }
 
   onChange = e => this.setState({[e.target.name]: e.target.value});
@@ -15,12 +21,11 @@ class SideMenuPanel extends React.Component {
   closeModal = () => this.setState({modal: false});
 
   onSubmit = () => {
-
+    this.props.createNewCategory(this.state);
   }
 
   render() {
-    const {chatroom, user} = this.props;
-    const  {modal} = this.state;
+    const  {modal, chatroom, user} = this.state;
     return (
       <Menu
       size='large' 
@@ -57,10 +62,6 @@ class SideMenuPanel extends React.Component {
             <Segment>
               <Label attached='top' color='black' >Name</Label>
               <Input fluid placeholder='Category Name' name='name' onChange={this.onChange} />
-            </Segment>
-            <Segment>
-              <Label attached='top' color='black' >Description</Label>
-              <Input fluid placeholder='Category Description' name='description' onChange={this.onChange} />
             </Segment>
             <Button.Group attached='bottom'>
               <Button negative onClick={this.closeModal}>Cancel</Button>

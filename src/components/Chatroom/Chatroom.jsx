@@ -3,6 +3,7 @@ import firebase from '../../firebase';
 import {Grid, Sidebar, Menu} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 
+import {createNewCategory} from '../../redux/actions/channelActions';
 import {getChatroom} from '../../redux/actions/chatroomActions';
 import SideMenulPanel from '../SideMenuPanel/SideMenuPanel';
 
@@ -23,11 +24,11 @@ class Chatroom extends React.Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({user: nextProps.user, chatroom: nextProps.chatroom});
-    console.log('this ran, roomnavbar')
   }
 
   render() {
     const {chatroom, user} = this.state;
+    const {createNewCategory} = this.props;
     return (
       <Grid columns='equal'>
         <Sidebar 
@@ -41,6 +42,7 @@ class Chatroom extends React.Component {
         <SideMenulPanel 
           chatroom={chatroom}
           user={user}
+          createNewCategory={createNewCategory}
         />
         <Grid.Column style={{marginLeft: 320}}>
           <React.Fragment>t</React.Fragment>
@@ -61,7 +63,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getChatroom: id => dispatch(getChatroom(id))
+    getChatroom: id => dispatch(getChatroom(id)),
+    createNewCategory: category => dispatch(createNewCategory(category))
   }
 }
 

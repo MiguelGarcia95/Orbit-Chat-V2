@@ -19,7 +19,6 @@ class RoomNavbar extends React.Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({user: nextProps.user, chatrooms: nextProps.chatrooms});
-    console.log('this ran, roomnavbar')
   }
 
   onChange = e => this.setState({[e.target.name]: e.target.value});
