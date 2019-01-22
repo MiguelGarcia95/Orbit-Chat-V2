@@ -7,13 +7,18 @@ class SideMenuPanel extends React.Component {
     categoryModal: false,
     settingsModal: false,
     categoryName: '',
+    categories: [],
     user: null,
     chatroom: null,
     isHome: this.props.isHome
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    this.setState({user: nextProps.user, chatroom: nextProps.chatroom});
+    this.setState({
+      user: nextProps.user, 
+      chatroom: nextProps.chatroom, 
+      categories: nextProps.categories
+    });
   }
 
   onChange = e => this.setState({[e.target.name]: e.target.value});
@@ -29,11 +34,10 @@ class SideMenuPanel extends React.Component {
   }
 
   onSettingsSubmit = () => {
-
   }
 
   render() {
-    const  {categoryModal, chatroom, user, settingsModal, isHome} = this.state;
+    const  {categoryModal, chatroom, user, settingsModal, isHome, categories} = this.state;
     return (
       <Menu
       size='large' 
@@ -41,13 +45,13 @@ class SideMenuPanel extends React.Component {
       vertical
       >
 
-      {!isHome && (
-        <HeaderFooter 
-          chatroom={chatroom} 
-          openModal={this.openCategoryModal}
-          name={chatroom && chatroom.chatroom.name}
-        />
-      )}
+        {!isHome && (
+          <HeaderFooter 
+            chatroom={chatroom} 
+            openModal={this.openCategoryModal}
+            name={chatroom && chatroom.chatroom.name}
+          />
+        )}
 
         <Modal open={categoryModal} onClose={this.closeModal} >
           <Modal.Header>Create A New Category</Modal.Header>

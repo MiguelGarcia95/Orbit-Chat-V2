@@ -50,6 +50,7 @@ class Chatroom extends React.Component {
           user={user}
           createNewCategory={createNewCategory}
           createNewChannel={createNewChannel}
+          categories={categories}
           isHome={false}
         />
         <Grid.Column style={{marginLeft: 320}}>
