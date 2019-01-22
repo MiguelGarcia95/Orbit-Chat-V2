@@ -3,17 +3,15 @@ import * as actionTypes from '../actions/types';
 export const createNewChannel = channel => {
   return (dispatch, getState, {getFirestore}) => {
     // structure
-    // root/channels/chatroomId/channelId/Channel
+    // root/channels/chatroomId/channels/
     console.log(channel)
   }
 }
 
 export const createNewCategory = category => {
   return (dispatch, getState, {getFirestore}) => {
-     // structure
-    //root/category/chatroomId/categoryId/category
     const firestore = getFirestore();
-    firestore.add(`category/${category.chatroom.id}`, {
+    firestore.add(`category/${category.chatroom.id}/categories`, {
       name: category.categoryName,
       createdByUsername: category.user.displayName,
       createdByUid: category.user.uid,
@@ -21,12 +19,12 @@ export const createNewCategory = category => {
     }).then(() => {
       dispatch({
         type: actionTypes.CREATE_NEW_CATEGORY,
-        payload: {chatroomError: null}
+        payload: {channelError: null}
       })
     }).catch(err => {
       dispatch({
         type: actionTypes.CREATE_NEW_CATEGORY_ERROR,
-        payload: {chatroomError: err.message}
+        payload: {channelError: err.message}
       })
     })
   }
@@ -35,5 +33,11 @@ export const createNewCategory = category => {
 export const getChannels = chatId => {
   return (dispatch, getState, {getFirestore}) => {
     console.log(chatId)
+  }
+}
+
+export const getCategories = chatId => {
+  return (dispatch, getState, {getFirestore}) => {
+    console.log(chatId);
   }
 }
