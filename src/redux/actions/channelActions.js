@@ -4,6 +4,14 @@ export const createNewChannel = channel => {
   return (dispatch, getState, {getFirestore}) => {
     // structure
     // root/channels/chatroomId/channels/
+    const firestore = getFirestore();
+    // firestore.add(`channel/${channel.chatroom.id}/channels`, {
+    //   name: channel.channelName,
+    //   description: channel.channelDescription,
+    //   createdByUsername: channel.user.displayName,
+    //   createdByUid: channel.user.uid,
+    //   createdDate: firestore.FieldValue.serverTimestamp()
+    // })
     console.log(channel)
   }
 }
