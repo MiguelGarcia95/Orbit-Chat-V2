@@ -10,7 +10,8 @@ class ChatMenuPanel extends React.Component {
     categories: [],
     user: null,
     chatroom: null,
-    isHome: this.props.isHome
+    isHome: this.props.isHome,
+    currentChannel: ''
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -34,7 +35,8 @@ class ChatMenuPanel extends React.Component {
   }
 
   displayCategories = (categories) => {
-    
+    //loop thru categories, and then 
+    // fetch matching channels and display them
   }
 
   onSettingsSubmit = () => {
