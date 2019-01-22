@@ -1,5 +1,5 @@
 import React from 'react';
-import {Menu, Grid, Container, Icon, Image, Modal, Segment, Label, Input, Button} from 'semantic-ui-react';
+import {Menu, Grid, Header, Container, Icon, Image, Modal, Segment, Label, Input, Button} from 'semantic-ui-react';
 import HeaderFooter from '../Layout/HeaderFooter';
 
 class ChatMenuPanel extends React.Component {
@@ -37,6 +37,13 @@ class ChatMenuPanel extends React.Component {
   displayCategories = (categories) => {
     //loop thru categories, and then 
     // fetch matching channels and display them
+    return categories.map(category => {
+      return (
+        <Grid style={{paddingTop: '70px'}} key={category.id}>
+          <Header as ='h3'>{category.category.name}</Header>
+        </Grid>
+      )
+    })
   }
 
   onSettingsSubmit = () => {
