@@ -18,10 +18,16 @@ export const createNewCategory = category => {
       createdByUsername: category.user.displayName,
       createdByUid: category.user.uid,
       createdDate: firestore.FieldValue.serverTimestamp()
-    }).then(createdCategory => {
-      
+    }).then(() => {
+      dispatch({
+        type: actionTypes.CREATE_NEW_CATEGORY,
+        payload: {chatroomError: null}
+      })
     }).catch(err => {
-
+      dispatch({
+        type: actionTypes.CREATE_NEW_CATEGORY_ERROR,
+        payload: {chatroomError: err.message}
+      })
     })
   }
 }

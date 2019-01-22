@@ -1,7 +1,8 @@
 import * as actionTypes from '../actions/types';
 
 const initialState = {
-
+  channels: [],
+  channelError: null
 }
 
 export const channelReducer = (state = initialState, action) => {
