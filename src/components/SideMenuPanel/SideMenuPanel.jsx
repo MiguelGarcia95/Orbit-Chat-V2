@@ -70,8 +70,7 @@ class SideMenuPanel extends React.Component {
 
         {/* Display Chatroom categories + channels */}
 
-        {!isHome && (
-          <Menu.Header 
+        <Menu.Header 
             as='div'
             className='Header__footer'
             content={user && (
@@ -94,7 +93,6 @@ class SideMenuPanel extends React.Component {
               </Grid>
             )}
           />
-        )}
 
         
 

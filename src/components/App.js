@@ -26,7 +26,7 @@ class App extends React.Component {
           vertical
           visible
         />
-        <SideMenulPanel isHome={true} />
+        <SideMenulPanel isHome={true} user={this.props.user} />
         <Grid.Column style={{marginLeft: 320}}>
           <React.Fragment>t</React.Fragment>
         </Grid.Column>
