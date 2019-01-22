@@ -12,7 +12,17 @@ export const createNewCategory = category => {
   return (dispatch, getState, {getFirestore}) => {
      // structure
     //root/category/chatroomId/categoryId/category
-    console.log(category)
+    const firestore = getFirestore();
+    firestore.add(`category/${category.chatroom.id}`, {
+      name: category.categoryName,
+      createdByUsername: category.user.displayName,
+      createdByUid: category.user.uid,
+      createdDate: firestore.FieldValue.serverTimestamp()
+    }).then(createdCategory => {
+      
+    }).catch(err => {
+
+    })
   }
 }
 
