@@ -38,6 +38,27 @@ export const getChannels = chatId => {
 
 export const getCategories = chatId => {
   return (dispatch, getState, {getFirestore}) => {
-    console.log(chatId);
+    const firestore = getFirestore();
+    firestore.collection(`category/${chatId}/categories`).get().then(data => {
+      let categories = [];
+      data.forEach(doc => {
+        categories.push({id: doc.id, category: doc.data()})
+      });
+      dispatch({
+        type: actionTypes.GET_CATEGORIES,
+        payload: {
+          channelError: null,
+          categories: categories
+        }
+      })
+    }).catch(err => {
+      dispatch({
+        type: actionTypes.GET_CATEGORIES_ERROR,
+        payload: {
+          channelError: err.message,
+          categories: []
+        }
+      })
+    })
   }
 }
