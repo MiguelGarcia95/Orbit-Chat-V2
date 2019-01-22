@@ -7,6 +7,10 @@ import {connect} from 'react-redux';
 import HomeMenuPanel from './HomeMenuPanel/HomeMenuPanel';
 
 class App extends React.Component {
+  state = {
+    user: null
+  }
+
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (!user) {
@@ -15,7 +19,12 @@ class App extends React.Component {
     })
   }
 
+  // UNSAFE_componentWillReceiveProps(nextProps) {
+  //   this.setState({user: nextProps.user});
+  // }
+
   render() {
+    const {user} = this.props;
     return (
       <Grid columns='equal'>
         <Sidebar 
@@ -26,12 +35,12 @@ class App extends React.Component {
           vertical
           visible
         />
-        <HomeMenuPanel isHome={true} user={this.props.user} />
+        <HomeMenuPanel user={user} />
         <Grid.Column style={{marginLeft: 320}}>
-          <React.Fragment>t</React.Fragment>
+          <React.Fragment></React.Fragment>
         </Grid.Column>
         <Grid.Column width={2}>
-          <React.Fragment>t</React.Fragment>
+          <React.Fragment></React.Fragment>
         </Grid.Column>
       </Grid>
     );

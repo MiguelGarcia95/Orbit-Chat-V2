@@ -45,19 +45,20 @@ class Chatroom extends React.Component {
           vertical
           visible
         />
+
         <ChatMenulPanel 
           chatroom={chatroom}
           user={user}
           createNewCategory={createNewCategory}
           createNewChannel={createNewChannel}
           categories={categories}
-          isHome={false}
         />
+
         <Grid.Column style={{marginLeft: 320}}>
-          <React.Fragment>t</React.Fragment>
+          <React.Fragment></React.Fragment>
         </Grid.Column>
         <Grid.Column width={2}>
-          <React.Fragment>t</React.Fragment>
+          <React.Fragment></React.Fragment>
         </Grid.Column>
       </Grid>
     );

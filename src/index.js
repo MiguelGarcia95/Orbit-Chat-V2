@@ -16,7 +16,7 @@ import Chatroom from './components/Chatroom/Chatroom';
 
 class Root extends React.Component {
   state = {
-    currentRoom: ''
+    currentRoom: '',
   }
   
   componentDidMount() {
@@ -32,23 +32,17 @@ class Root extends React.Component {
     return (
       <React.Fragment>
         <Switch>
-            {/* 
-            <Route path='/app/:roomId/:channelId' component={} /> 
-          */}
-            {/* <Route path='/app/:roomId' component={Chatroom} /> */}
             <Route path='/app/:roomId'
               render={(props) => <Chatroom {...props} user={currentUser} />}
             />
             <Route path='/app'
               render={(props) => <App {...props} user={currentUser} />}
             />
-            {/* <Route extact path='/app' component={App} /> */}
             <Route extact path='/login' component={Login} />
             <Route extact path='/register' component={Register} />
             <Route exact path="/" render={() => (<Redirect to="/app" />)} /> 
             {/* <Route path="*" component={NoMatch} />    */}
           </Switch>
-          {/* <Route path='/app' component={RoomNavbar} /> */}
           <Route path='/app'
             render={(props) => <RoomNavbar {...props} user={currentUser} />}
           />

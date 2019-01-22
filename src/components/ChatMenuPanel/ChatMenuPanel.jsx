@@ -73,7 +73,7 @@ class ChatMenuPanel extends React.Component {
         {/* Display Chatroom categories + channels */}
         {this.displayCategories(categories)}
 
-        <Menu.Header 
+        {/* <Menu.Header 
             as='div'
             className='Header__footer'
             content={user && (
@@ -95,7 +95,7 @@ class ChatMenuPanel extends React.Component {
                 </Grid.Row>
               </Grid>
             )}
-          />
+          /> */}
 
         
 

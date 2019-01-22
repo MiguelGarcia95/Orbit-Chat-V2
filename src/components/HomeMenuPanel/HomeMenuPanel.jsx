@@ -28,7 +28,7 @@ class HomeMenuPanel extends React.Component {
       vertical
       >
 
-        <Menu.Header 
+        {/* <Menu.Header 
             as='div'
             className='Header__footer'
             content={user && (
@@ -50,7 +50,7 @@ class HomeMenuPanel extends React.Component {
                 </Grid.Row>
               </Grid>
             )}
-          />
+          /> */}
 
         
 
