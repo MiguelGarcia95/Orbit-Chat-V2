@@ -33,6 +33,10 @@ class SideMenuPanel extends React.Component {
     this.props.createNewCategory(this.state);
   }
 
+  displayCategories = (categories) => {
+
+  }
+
   onSettingsSubmit = () => {
   }
 
@@ -69,6 +73,9 @@ class SideMenuPanel extends React.Component {
         </Modal>
 
         {/* Display Chatroom categories + channels */}
+        {!isHome && (
+          this.displayCategories(categories)
+        )}
 
         <Menu.Header 
             as='div'
