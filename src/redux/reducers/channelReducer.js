@@ -18,6 +18,18 @@ export const channelReducer = (state = initialState, action) => {
         ...state,
         channelError: action.payload.channelError
       }
+    case actionTypes.GET_CATEGORIES:
+      return {
+        ...state,
+        channelError: action.payload.channelError,
+        categories: action.payload.categories
+      }
+    case actionTypes.GET_CATEGORIES_ERROR:
+      return {
+        ...state,
+        channelError: action.payload.channelError,
+        categories: action.payload.categories
+      }
     default:
       return state;
   }

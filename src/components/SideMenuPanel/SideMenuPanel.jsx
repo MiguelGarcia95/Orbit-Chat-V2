@@ -1,5 +1,5 @@
 import React from 'react';
-import {Menu, Grid, Container, Icon, Dropdown, Image, Modal, Segment, Label, Input, Button} from 'semantic-ui-react';
+import {Menu, Grid, Container, Icon, Image, Modal, Segment, Label, Input, Button} from 'semantic-ui-react';
 import HeaderFooter from '../Layout/HeaderFooter';
 
 class SideMenuPanel extends React.Component {

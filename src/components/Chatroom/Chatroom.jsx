@@ -10,7 +10,8 @@ import SideMenulPanel from '../SideMenuPanel/SideMenuPanel';
 class Chatroom extends React.Component {
   state = {
     chatroom: null,
-    user: null
+    user: null,
+    categories: []
   }
 
   componentDidMount() {
@@ -24,13 +25,16 @@ class Chatroom extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    this.setState({user: nextProps.user, chatroom: nextProps.chatroom});
+    this.setState({
+      user: nextProps.user, 
+      chatroom: nextProps.chatroom, 
+      categories: nextProps.categories
+    });
   }
 
   render() {
-    const {chatroom, user} = this.state;
+    const {chatroom, user, categories} = this.state;
     const {createNewCategory} = this.props;
-    
     return (
       <Grid columns='equal'>
         <Sidebar 
@@ -60,7 +64,8 @@ class Chatroom extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    chatroom: state.chat.currentChatroom
+    chatroom: state.chat.currentChatroom,
+    categories: state.channel.categories
   }
 }
 
