@@ -4,7 +4,7 @@ import firebase from '../firebase';
 import {Grid, Sidebar, Menu} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 
-import SideMenulPanel from './SideMenuPanel/SideMenuPanel';
+import HomeMenuPanel from './HomeMenuPanel/HomeMenuPanel';
 
 class App extends React.Component {
   componentDidMount() {
@@ -26,7 +26,7 @@ class App extends React.Component {
           vertical
           visible
         />
-        <SideMenulPanel isHome={true} user={this.props.user} />
+        <HomeMenuPanel isHome={true} user={this.props.user} />
         <Grid.Column style={{marginLeft: 320}}>
           <React.Fragment>t</React.Fragment>
         </Grid.Column>

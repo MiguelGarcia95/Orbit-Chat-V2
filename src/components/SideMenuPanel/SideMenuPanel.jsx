@@ -34,7 +34,7 @@ class SideMenuPanel extends React.Component {
   }
 
   displayCategories = (categories) => {
-
+    
   }
 
   onSettingsSubmit = () => {
