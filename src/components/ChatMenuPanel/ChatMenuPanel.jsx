@@ -49,13 +49,11 @@ class ChatMenuPanel extends React.Component {
       vertical
       >
 
-        {!isHome && (
-          <HeaderFooter 
-            chatroom={chatroom} 
-            openModal={this.openCategoryModal}
-            name={chatroom && chatroom.chatroom.name}
-          />
-        )}
+        <HeaderFooter 
+          chatroom={chatroom} 
+          openModal={this.openCategoryModal}
+          name={chatroom && chatroom.chatroom.name}
+        />
 
         <Modal open={categoryModal} onClose={this.closeModal} >
           <Modal.Header>Create A New Category</Modal.Header>
@@ -73,9 +71,7 @@ class ChatMenuPanel extends React.Component {
         </Modal>
 
         {/* Display Chatroom categories + channels */}
-        {!isHome && (
-          this.displayCategories(categories)
-        )}
+        {this.displayCategories(categories)}
 
         <Menu.Header 
             as='div'

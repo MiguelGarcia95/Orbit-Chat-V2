@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 
 import {createNewCategory, getCategories, createNewChannel} from '../../redux/actions/channelActions';
 import {getChatroom} from '../../redux/actions/chatroomActions';
-import SideMenulPanel from '../SideMenuPanel/SideMenuPanel';
+import ChatMenulPanel from '../ChatMenuPanel/ChatMenuPanel';
 
 class Chatroom extends React.Component {
   state = {
@@ -45,7 +45,7 @@ class Chatroom extends React.Component {
           vertical
           visible
         />
-        <SideMenulPanel 
+        <ChatMenulPanel 
           chatroom={chatroom}
           user={user}
           createNewCategory={createNewCategory}
