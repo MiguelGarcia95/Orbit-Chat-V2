@@ -38,9 +38,11 @@ class ChatMenuPanel extends React.Component {
     //loop thru categories, and then 
     // fetch matching channels and display them
     return categories.map(category => {
+      // Here goes a fucntion that sorts and returns all matching channels in an array.
       return (
         <Grid style={{paddingTop: '70px'}} key={category.id}>
           <Header as ='h3'>{category.category.name}</Header>
+          {/* run another function that maps channels, this.displayChannels(channels) */}
         </Grid>
       )
     })
