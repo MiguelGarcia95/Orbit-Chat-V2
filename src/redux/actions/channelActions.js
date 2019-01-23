@@ -2,8 +2,6 @@ import * as actionTypes from '../actions/types';
 
 export const createNewChannel = channel => {
   return (dispatch, getState, {getFirestore}) => {
-    // structure
-    // root/channels/chatroomId/channels/
     const firestore = getFirestore();
     firestore.add(`channel/${channel.chatroom.id}/channels`, {
       name: channel.channelName,
@@ -12,8 +10,21 @@ export const createNewChannel = channel => {
       createdByUsername: channel.user.displayName,
       createdByUid: channel.user.uid,
       createdDate: firestore.FieldValue.serverTimestamp()
+    }).then(() => {
+      dispatch({
+        type:actionTypes.CREATE_NEW_CHANNEL,
+        payload: {
+          channelError: null
+        }        
+      })
+    }).catch(err => {
+      dispatch({
+        type:actionTypes.CREATE_NEW_CHANNEL_ERROR,
+        payload: {
+          channelError: err.message
+        }
+      })
     })
-    // console.log(channel)
   }
 }
 
