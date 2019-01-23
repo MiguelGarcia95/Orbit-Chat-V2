@@ -23,9 +23,13 @@ class ChannelCategory extends React.Component {
     this.props.createNewChannel(this.state);
   }
 
-  displayChannels = channels => {
+  displayChannels = (channels, category) => {
+    let matchingChannels = [];
+    // if channel.channel.categoryId === category.id then add to matchingChannels
     return (
-      <h1>Channel Here</h1>
+      <Container fluid textAlign='right'>
+        <Header as='p' floated='left' >Channel Here</Header>
+      </Container>
     )
   }
 
@@ -40,7 +44,7 @@ class ChannelCategory extends React.Component {
             <Icon name='plus' style={{cursor: 'pointer'}} onClick={this.openModal} />
           </Container>
           {/* run another function that maps channels, this.displayChannels(channels) */}
-          {this.displayChannels(channels)}
+          {this.displayChannels(channels, category)}
         </Grid>
 
         <Modal open={modal} onClose={this.closeModal} >
