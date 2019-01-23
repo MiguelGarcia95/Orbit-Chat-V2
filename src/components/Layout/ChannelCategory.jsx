@@ -23,14 +23,27 @@ class ChannelCategory extends React.Component {
     this.props.createNewChannel(this.state);
   }
 
-  displayChannels = (channels, category) => {
+  sortChannels = (channels, category) => {
     let matchingChannels = [];
-    // if channel.channel.categoryId === category.id then add to matchingChannels
-    return (
-      <Container fluid textAlign='right'>
-        <Header as='p' floated='left' >Channel Here</Header>
-      </Container>
-    )
+    channels.forEach(channel => {
+      if (channel.channel.categoryId === category.id) {
+        matchingChannels.push(channel)
+      }
+    })
+    return matchingChannels;
+  }
+
+  displayChannels = (channels, category) => {
+    let matchingChannels = this.sortChannels(channels, category);
+    if (matchingChannels.length > 0) {
+      return matchingChannels.map(channel => {
+        return (
+          <Container fluid textAlign='right' key={channel.id}>
+            <Header as='p' floated='left' >{channel.channel.name}</Header>
+          </Container>
+        )
+      })
+    }
   }
 
   render() {
