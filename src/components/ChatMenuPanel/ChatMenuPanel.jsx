@@ -1,5 +1,6 @@
 import React from 'react';
-import {Menu, Grid, Header, Container, Icon, Image, Modal, Segment, Label, Input, Button} from 'semantic-ui-react';
+// import {Menu, Grid, Header, Container, Icon, Image, Modal, Segment, Label, Input, Button} from 'semantic-ui-react';
+import {Menu, Modal, Segment, Label, Input, Button} from 'semantic-ui-react';
 import HeaderFooter from '../Layout/HeaderFooter';
 import ChannelCategory from '../Layout/ChannelCategory';
 
