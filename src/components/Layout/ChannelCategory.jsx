@@ -9,7 +9,8 @@ class ChannelCategory extends React.Component {
     channelDescription: '',
     channelName: '',
     category: this.props.category,
-    user: this.props.user
+    user: this.props.user,
+    chatroom: this.props.chatroom
   }
 
   onChange = e => this.setState({[e.target.name]: e.target.value});

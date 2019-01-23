@@ -43,7 +43,7 @@ class ChatMenuPanel extends React.Component {
     return categories.map(category => {
       // Here goes a fucntion that sorts and returns all matching channels in an array.
       return (
-        <ChannelCategory key={category.id} category={category} user={this.state.user} />
+        <ChannelCategory key={category.id} category={category} user={this.state.user} chatroom={this.state.chatroom} />
       )
     })
   }
