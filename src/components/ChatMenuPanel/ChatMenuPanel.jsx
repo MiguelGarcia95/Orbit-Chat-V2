@@ -1,11 +1,13 @@
 import React from 'react';
 import {Menu, Grid, Header, Container, Icon, Image, Modal, Segment, Label, Input, Button} from 'semantic-ui-react';
 import HeaderFooter from '../Layout/HeaderFooter';
+import ChannelCategory from '../Layout/ChannelCategory';
 
 class ChatMenuPanel extends React.Component {
   state = {
     categoryModal: false,
     settingsModal: false,
+    // channelModal: false,
     categoryName: '',
     categories: [],
     user: null,
@@ -30,6 +32,9 @@ class ChatMenuPanel extends React.Component {
   openSettingsModal = () => this.setState({settingsModal: true});
   closeSettingsModal = () => this.setState({settingsModal: false});
 
+  // openChannelModal = () => this.setState({channelModal: true});
+  // closeChannelModal = () => this.setState({channelModal: false});
+
   onSubmit = () => {
     this.props.createNewCategory(this.state);
   }
@@ -40,13 +45,7 @@ class ChatMenuPanel extends React.Component {
     return categories.map(category => {
       // Here goes a fucntion that sorts and returns all matching channels in an array.
       return (
-        <Grid style={{paddingTop: '70px'}} key={category.id}>
-          <Container fluid textAlign='right'>
-            <Header as='h3' floated='left' >{category.category.name} </Header>
-            <Icon name='plus'  />
-          </Container>
-          {/* run another function that maps channels, this.displayChannels(channels) */}
-        </Grid>
+        <ChannelCategory key={category.id} category={category} />
       )
     })
   }
@@ -55,14 +54,14 @@ class ChatMenuPanel extends React.Component {
   }
 
   render() {
-    const  {categoryModal, chatroom, user, settingsModal, isHome, categories} = this.state;
+    const  {categoryModal, chatroom, settingsModal, categories, channelModal} = this.state;
     return (
       <Menu
       size='large' 
       fixed='left'
       vertical
+      style={{paddingTop: '70px'}}
       >
-
         <HeaderFooter 
           chatroom={chatroom} 
           openModal={this.openCategoryModal}
