@@ -23,8 +23,14 @@ class ChannelCategory extends React.Component {
     this.props.createNewChannel(this.state);
   }
 
+  displayChannels = channels => {
+    return (
+      <h1>Channel Here</h1>
+    )
+  }
+
   render() {
-    const {category} = this.props;
+    const {category, channels} = this.props;
     const {modal} = this.state;
     return (
       <React.Fragment>
@@ -34,6 +40,7 @@ class ChannelCategory extends React.Component {
             <Icon name='plus' style={{cursor: 'pointer'}} onClick={this.openModal} />
           </Container>
           {/* run another function that maps channels, this.displayChannels(channels) */}
+          {this.displayChannels(channels)}
         </Grid>
 
         <Modal open={modal} onClose={this.closeModal} >

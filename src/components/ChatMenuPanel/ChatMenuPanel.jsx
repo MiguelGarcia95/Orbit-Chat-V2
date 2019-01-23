@@ -10,6 +10,7 @@ class ChatMenuPanel extends React.Component {
     settingsModal: false,
     categoryName: '',
     categories: [],
+    channels: [],
     user: null,
     chatroom: null,
     isHome: this.props.isHome,
@@ -20,7 +21,8 @@ class ChatMenuPanel extends React.Component {
     this.setState({
       user: nextProps.user, 
       chatroom: nextProps.chatroom, 
-      categories: nextProps.categories
+      categories: nextProps.categories,
+      channels: nextProps.channels
     });
   }
 
@@ -43,7 +45,13 @@ class ChatMenuPanel extends React.Component {
     return categories.map(category => {
       // Here goes a fucntion that sorts and returns all matching channels in an array.
       return (
-        <ChannelCategory key={category.id} category={category} user={this.state.user} chatroom={this.state.chatroom} />
+        <ChannelCategory  
+          key={category.id}
+          channels={this.state.channels}
+          category={category} 
+          user={this.state.user} 
+          chatroom={this.state.chatroom}
+        />
       )
     })
   }
