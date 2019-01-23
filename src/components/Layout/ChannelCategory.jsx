@@ -5,7 +5,11 @@ import {createNewChannel} from '../../redux/actions/channelActions';
 
 class ChannelCategory extends React.Component {
   state = {
-    modal: false
+    modal: false,
+    channelDescription: '',
+    channelName: '',
+    category: this.props.category,
+    user: this.props.user
   }
 
   onChange = e => this.setState({[e.target.name]: e.target.value});
@@ -14,7 +18,8 @@ class ChannelCategory extends React.Component {
   closeModal = () => this.setState({modal: false});
 
   onSubmit = () => {
-    console.log(this.state);
+    this.closeModal();
+    this.props.createNewChannel(this.state);
   }
 
   render() {
@@ -31,11 +36,15 @@ class ChannelCategory extends React.Component {
         </Grid>
 
         <Modal open={modal} onClose={this.closeModal} >
-          <Modal.Header>Create A New Category</Modal.Header>
+          <Modal.Header>Create A New Channel</Modal.Header>
           <Modal.Content>
             <Segment>
               <Label attached='top' color='black' >Name</Label>
-              <Input fluid placeholder='Category Name' name='categoryName' onChange={this.onChange} />
+              <Input fluid placeholder='Channel Name' name='channelName' onChange={this.onChange} />
+            </Segment>
+            <Segment>
+              <Label attached='top' color='black' >Description</Label>
+              <Input fluid placeholder='Channel Name' name='channelDescription' onChange={this.onChange} />
             </Segment>
             <Button.Group attached='bottom'>
               <Button negative onClick={this.closeModal}>Cancel</Button>

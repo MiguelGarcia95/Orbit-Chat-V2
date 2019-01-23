@@ -30,11 +30,12 @@ class SideMenuPanel extends React.Component {
   closeSettingsModal = () => this.setState({settingsModal: false});
 
   onSubmit = () => {
+    this.closeCategoryModal();
     this.props.createNewCategory(this.state);
   }
 
   displayCategories = (categories) => {
-    
+
   }
 
   onSettingsSubmit = () => {

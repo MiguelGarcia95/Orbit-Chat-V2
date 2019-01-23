@@ -8,7 +8,6 @@ class ChatMenuPanel extends React.Component {
   state = {
     categoryModal: false,
     settingsModal: false,
-    // channelModal: false,
     categoryName: '',
     categories: [],
     user: null,
@@ -33,10 +32,8 @@ class ChatMenuPanel extends React.Component {
   openSettingsModal = () => this.setState({settingsModal: true});
   closeSettingsModal = () => this.setState({settingsModal: false});
 
-  // openChannelModal = () => this.setState({channelModal: true});
-  // closeChannelModal = () => this.setState({channelModal: false});
-
   onSubmit = () => {
+    this.closeCategoryModal();
     this.props.createNewCategory(this.state);
   }
 
@@ -46,7 +43,7 @@ class ChatMenuPanel extends React.Component {
     return categories.map(category => {
       // Here goes a fucntion that sorts and returns all matching channels in an array.
       return (
-        <ChannelCategory key={category.id} category={category} />
+        <ChannelCategory key={category.id} category={category} user={this.state.user} />
       )
     })
   }
@@ -55,7 +52,7 @@ class ChatMenuPanel extends React.Component {
   }
 
   render() {
-    const  {categoryModal, chatroom, settingsModal, categories, channelModal} = this.state;
+    const  {categoryModal, chatroom, settingsModal, categories} = this.state;
     return (
       <Menu
       size='large' 
