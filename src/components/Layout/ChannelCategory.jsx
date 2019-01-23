@@ -38,9 +38,7 @@ class ChannelCategory extends React.Component {
     if (matchingChannels.length > 0) {
       return matchingChannels.map(channel => {
         return (
-          <Container fluid textAlign='right' key={channel.id}>
-            <Header as='p' floated='left' >{channel.channel.name}</Header>
-          </Container>
+          <Header as='h4' textAlign='left'  key={channel.id} >{channel.channel.name}</Header>
         )
       })
     }
@@ -53,11 +51,12 @@ class ChannelCategory extends React.Component {
       <React.Fragment>
         <Grid  >
           <Container fluid textAlign='right'>
-            <Header as='h3' floated='left' >{category.category.name} </Header>
+            <Header as='h2' floated='left' >{category.category.name} </Header>
             <Icon name='plus' style={{cursor: 'pointer'}} onClick={this.openModal} />
           </Container>
-          {/* run another function that maps channels, this.displayChannels(channels) */}
-          {this.displayChannels(channels, category)}
+          <Container fluid textAlign='right' >
+            {this.displayChannels(channels, category)}
+          </Container>
         </Grid>
 
         <Modal open={modal} onClose={this.closeModal} >
