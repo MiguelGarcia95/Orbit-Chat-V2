@@ -52,7 +52,28 @@ export const createNewCategory = category => {
 
 export const getChannels = chatId => {
   return (dispatch, getState, {getFirestore}) => {
-    console.log(chatId)
+    const firestore = getFirestore();
+    firestore.collection(`channel/${chatId}/channels`).get().then(data => {
+      let channels = [];
+      data.forEach(doc => {
+        channels.push({id: doc.id, channel: doc.data()})
+      });
+      dispatch({
+        type: actionTypes.GET_CHANNELS,
+        payload: {
+          channelError: null,
+          channels: channels
+        }
+      });
+    }).catch(err => {
+      dispatch({
+        type: actionTypes.GET_CHANNELS_ERROR,
+        payload: {
+          channelError: err.message,
+          channels: []
+        }
+      })
+    })
   }
 }
 

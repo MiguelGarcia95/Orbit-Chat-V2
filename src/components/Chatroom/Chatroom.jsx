@@ -36,7 +36,7 @@ class Chatroom extends React.Component {
   }
 
   render() {
-    const {chatroom, user, categories} = this.state;
+    const {chatroom, user, categories, channels} = this.state;
     const {createNewCategory, createNewChannel} = this.props;
     return (
       <Grid columns='equal'>
@@ -49,12 +49,17 @@ class Chatroom extends React.Component {
           visible
         />
 
+        {/* 
+          Use the same component, but have the component use a different 
+          return component depending on isHome = true/false
+         */}
         <ChatMenulPanel 
           chatroom={chatroom}
           user={user}
           createNewCategory={createNewCategory}
           createNewChannel={createNewChannel}
           categories={categories}
+          channels={channels}
         />
 
         <Grid.Column style={{marginLeft: 320}}>
