@@ -28,6 +28,11 @@ class ChatMenuPanel extends React.Component {
       channels: nextProps.channels,
       currentChannel: nextProps.currentChannel
     });
+    if (nextProps.currentChannel === null) {
+      this.setState({
+        currentChannel: nextProps.channels[0]
+      })
+    }
   }
 
   onChange = e => this.setState({[e.target.name]: e.target.value});
