@@ -34,13 +34,11 @@ class ChannelCategory extends React.Component {
 
   displayChannels = (channels, category) => {
     let matchingChannels = this.sortChannels(channels, category);
-    if (matchingChannels.length > 0) {
-      return matchingChannels.map(channel => {
-        return (
-          <Header as='h5' textAlign='left'  key={channel.id} className='category__channel' >{channel.channel.name}</Header>
-        )
-      })
-    }
+    return matchingChannels.map(channel => {
+      return (
+        <Header as='h5' textAlign='left'  key={channel.id} className='category__channel' >{channel.channel.name}</Header>
+      )
+    })
   }
 
   render() {
