@@ -28,6 +28,10 @@ html, body, .app {
   width: 100%; 
 }
 
+.category__header {
+  margin: 5px 0 !important;
+}
+
 .category__channel {
   margin: 5px 0px !important;
   padding: 5px !important;
