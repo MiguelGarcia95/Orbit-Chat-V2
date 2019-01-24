@@ -36,7 +36,15 @@ class ChannelCategory extends React.Component {
     let matchingChannels = this.sortChannels(channels, category);
     return matchingChannels.map(channel => {
       return (
-        <Header as='h5' textAlign='left'  key={channel.id} className='category__channel' >{channel.channel.name}</Header>
+        <Header 
+          as='h5' 
+          textAlign='left'  
+          key={channel.id} 
+          onClick={this.props.getChannel.bind(null, this.state.chatroom.id, channel.id)}
+          className='category__channel' 
+        >
+          {channel.channel.name}
+        </Header>
       )
     })
   }

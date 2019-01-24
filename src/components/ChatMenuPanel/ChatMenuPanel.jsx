@@ -51,6 +51,7 @@ class ChatMenuPanel extends React.Component {
           category={category} 
           user={this.state.user} 
           chatroom={this.state.chatroom}
+          getChannel={this.props.getChannel}
         />
       )
     })
