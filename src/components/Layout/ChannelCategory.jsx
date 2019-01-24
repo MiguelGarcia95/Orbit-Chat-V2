@@ -18,10 +18,6 @@ class ChannelCategory extends React.Component {
   openModal = () => this.setState({modal: true});
   closeModal = () => this.setState({modal: false});
 
-  onChannelClick = () => {
-    // this.props.getChannel()
-  }
-
   onSubmit = () => {
     this.closeModal();
     this.props.createNewChannel(this.state);
@@ -43,8 +39,7 @@ class ChannelCategory extends React.Component {
         <Header 
           as='h5' 
           textAlign='left'  
-          key={channel.id} 
-          // onClick={this.props.getChannel.bind(null, this.state.chatroom.id, channel.id)}
+          key={channel.id}
           onClick={this.props.getChannel.bind(null, channel)}
           className='category__channel' 
         >
