@@ -18,6 +18,10 @@ class ChannelCategory extends React.Component {
   openModal = () => this.setState({modal: true});
   closeModal = () => this.setState({modal: false});
 
+  onChannelClick = () => {
+    
+  }
+
   onSubmit = () => {
     this.closeModal();
     this.props.createNewChannel(this.state);
