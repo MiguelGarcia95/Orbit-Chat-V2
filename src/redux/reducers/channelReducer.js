@@ -43,6 +43,12 @@ export const channelReducer = (state = initialState, action) => {
         channelError: action.payload.channelError,
         channels: action.payload.channels
       }
+    case actionTypes.GET_CHANNEL:
+      return {
+        ...state,
+        channelError: action.payload.channelError,
+        currentChannel: action.payload.currentChannel
+      }
     default:
       return state;
   }

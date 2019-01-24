@@ -45,7 +45,7 @@ class ChannelCategory extends React.Component {
           textAlign='left'  
           key={channel.id} 
           // onClick={this.props.getChannel.bind(null, this.state.chatroom.id, channel.id)}
-          onClick={this.props.updateChannel.bind(null, channel)}
+          onClick={this.props.getChannel.bind(null, channel)}
           className='category__channel' 
         >
           {channel.channel.name}
