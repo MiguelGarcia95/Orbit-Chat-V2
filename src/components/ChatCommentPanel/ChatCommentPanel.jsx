@@ -26,24 +26,9 @@ class ChatCommentPanel extends React.Component {
       <React.Fragment>
         {currentChannel && (
           <Header as='h4' className='Chat__header' style={{height: '59px'}} textAlign='left' block={true} color='black'>
-            <p>{currentChannel.channel.name}</p>
+            <p>{currentChannel.channel.name}: <small>{currentChannel.channel.description}</small></p>
           </Header>
         )}
-
-        {/* <Menu.Header 
-          as='div'
-          
-          content={currentChannel && (
-            <Grid>
-              <Grid.Row columns='2'>
-                <Grid.Column verticalAlign='middle' width={12}>
-                  <Container fluid>
-                  </Container>
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-          )}
-        />  */}
       </React.Fragment>
     )
   }
