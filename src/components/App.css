@@ -27,3 +27,18 @@ html, body, .app {
   bottom: 0; left: 0;
   width: 100%; 
 }
+
+.category__channel {
+  margin: 5px 0px !important;
+  padding: 5px !important;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.category__channel:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.category__channel.active {
+  background-color: rgba(0,0,0,0.1);
+}

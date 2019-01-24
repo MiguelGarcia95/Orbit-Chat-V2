@@ -38,7 +38,7 @@ class ChannelCategory extends React.Component {
     if (matchingChannels.length > 0) {
       return matchingChannels.map(channel => {
         return (
-          <Header as='h4' textAlign='left'  key={channel.id} >{channel.channel.name}</Header>
+          <Header as='h5' textAlign='left'  key={channel.id} className='category__channel' >{channel.channel.name}</Header>
         )
       })
     }
