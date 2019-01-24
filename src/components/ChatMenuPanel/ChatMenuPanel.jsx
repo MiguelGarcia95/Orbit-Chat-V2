@@ -30,7 +30,7 @@ class ChatMenuPanel extends React.Component {
     });
     if (nextProps.currentChannel === null) {
       this.setState({
-        currentChannel: nextProps.channels[0]
+        currentChannel: nextProps.channels[nextProps.channels.length - 1]
       })
     }
   }
