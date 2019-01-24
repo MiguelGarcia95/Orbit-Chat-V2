@@ -24,13 +24,12 @@ class ChannelCategory extends React.Component {
   }
 
   sortChannels = (channels, category) => {
-    let matchingChannels = [];
-    channels.forEach(channel => {
+    return channels.reduce(function (filteredChannels, channel) {
       if (channel.channel.categoryId === category.id) {
-        matchingChannels.push(channel)
+        filteredChannels.push(channel)
       }
-    })
-    return matchingChannels;
+      return filteredChannels
+    }, [])
   }
 
   displayChannels = (channels, category) => {
@@ -54,7 +53,7 @@ class ChannelCategory extends React.Component {
             <Header as='h2' className='category__header' floated='left' >{category.category.name} </Header>
             <Icon name='plus' style={{cursor: 'pointer'}} onClick={this.openModal} />
           </Container>
-          <Container fluid textAlign='right' >
+          <Container fluid textAlign='right'>
             {this.displayChannels(channels, category)}
           </Container>
         </Grid>
