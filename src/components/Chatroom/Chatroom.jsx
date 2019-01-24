@@ -40,7 +40,7 @@ class Chatroom extends React.Component {
     const {chatroom, user, categories, channels} = this.state;
     const {createNewCategory, createNewChannel} = this.props;
     return (
-      <Grid columns='equal'>
+      <Grid columns='equal' className='app'>
         <Sidebar 
           width='very thin'
           icon='labeled'

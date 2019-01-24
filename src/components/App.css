@@ -8,6 +8,8 @@ html, body, .app {
 
 /* .app {padding: 1rem !important;} */
 
+/* .app {height: 100vh;} */
+
 .Header__header {
   text-align: center; 
   padding: 10px 0px; 
@@ -69,4 +71,18 @@ html, body, .app {
 
 .category__channel.active {
   background-color: rgba(0,0,0,0.1);
+}
+
+.chat__commentPannel {
+  height: 100vh !important;
+}
+
+.message__form {
+  position: absolute !important;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  margin-left: 1em !important;
+  /* margin-left: 320px !important; */
 }

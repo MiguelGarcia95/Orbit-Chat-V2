@@ -20,12 +20,10 @@ class ChatCommentPanel extends React.Component {
     }
   }
 
-
-
   render() {
     const {currentChannel} = this.state;
     return (
-      <React.Fragment>
+      <React.Fragment className='chat__commentPannel'>
         {currentChannel && <ChatPanelHeader currentChannel={currentChannel} />}
         <MessageForm  />
       </React.Fragment>
