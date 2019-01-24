@@ -28,6 +28,10 @@ html, body, .app {
   width: 100%; 
 }
 
+.category__container {
+  margin-top: 20px;
+}
+
 .category__header {
   margin: 0px 0px 5px 0px !important;
 }

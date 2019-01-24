@@ -66,7 +66,7 @@ class Chatroom extends React.Component {
 
         <Grid.Column style={{marginLeft: 320}}>
           <React.Fragment>
-            <ChatCommentPanel />
+            <ChatCommentPanel  channels={channels} />
           </React.Fragment>
         </Grid.Column>
         <Grid.Column width={2}>

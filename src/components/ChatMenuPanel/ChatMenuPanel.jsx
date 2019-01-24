@@ -16,8 +16,7 @@ class ChatMenuPanel extends React.Component {
     channels: [],
     user: null,
     chatroom: null,
-    isHome: this.props.isHome,
-    currentChannel: this.props.currentChannel
+    isHome: this.props.isHome
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -25,14 +24,8 @@ class ChatMenuPanel extends React.Component {
       user: nextProps.user, 
       chatroom: nextProps.chatroom, 
       categories: nextProps.categories,
-      channels: nextProps.channels,
-      currentChannel: nextProps.currentChannel
+      channels: nextProps.channels
     });
-    if (nextProps.currentChannel === null) {
-      this.setState({
-        currentChannel: nextProps.channels[nextProps.channels.length - 1]
-      })
-    }
   }
 
   onChange = e => this.setState({[e.target.name]: e.target.value});
@@ -67,8 +60,7 @@ class ChatMenuPanel extends React.Component {
   }
 
   render() {
-    const  {categoryModal, chatroom, settingsModal, categories, currentChannel} = this.state;
-    // console.log(currentChannel)
+    const  {categoryModal, chatroom, settingsModal, categories} = this.state;
     return (
       <Menu
       size='large' 
