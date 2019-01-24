@@ -18,6 +18,26 @@ html, body, .app {
   width: 100%; 
 }
 
+.Comments__container {
+  padding: 0px;
+}
+
+.Chat__header {
+  text-align: left; 
+  /* padding: 10px 0px;  */
+  background: #232323; 
+  color: white; 
+  /* top: 0; left: 0; */
+  width: 100%; 
+}
+
+.Chat__header p {
+  /* padding: 10px;  */
+  line-height: 49.2px;
+  box-sizing: border-box;
+  color: #232323;
+}
+
 .Header__footer {
   text-align: center; 
   padding: 10px 0px; 
