@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Menu, Grid, Container, Header} from 'semantic-ui-react';
+// import {Menu, Grid, Container, Header} from 'semantic-ui-react';
+import ChatPanelHeader from './ChatPanelHeader';
 
 class ChatCommentPanel extends React.Component {
   state = {
@@ -24,11 +25,7 @@ class ChatCommentPanel extends React.Component {
     const {currentChannel} = this.state;
     return (
       <React.Fragment>
-        {currentChannel && (
-          <Header as='h4' className='Chat__header' style={{height: '59px'}} textAlign='left' block={true} color='black'>
-            <p>{currentChannel.channel.name}: <small>{currentChannel.channel.description}</small></p>
-          </Header>
-        )}
+        {currentChannel && <ChatPanelHeader currentChannel={currentChannel} />}
       </React.Fragment>
     )
   }
