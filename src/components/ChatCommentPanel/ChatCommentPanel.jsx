@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 // import {Menu, Grid, Container, Header} from 'semantic-ui-react';
 import ChatPanelHeader from './ChatPanelHeader';
+import MessageForm from './MessageForm';
 
 class ChatCommentPanel extends React.Component {
   state = {
@@ -26,6 +27,7 @@ class ChatCommentPanel extends React.Component {
     return (
       <React.Fragment>
         {currentChannel && <ChatPanelHeader currentChannel={currentChannel} />}
+        <MessageForm  />
       </React.Fragment>
     )
   }
