@@ -68,7 +68,7 @@ class ChatMenuPanel extends React.Component {
 
   render() {
     const  {categoryModal, chatroom, settingsModal, categories, currentChannel} = this.state;
-    console.log(currentChannel)
+    // console.log(currentChannel)
     return (
       <Menu
       size='large' 
