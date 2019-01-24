@@ -99,7 +99,6 @@ class ChatMenuPanel extends React.Component {
 
         {/* Display Chatroom categories + channels */}
         {this.displayCategories(categories)}
-        
 
         <Modal size='small' basic centered={false} open={settingsModal} onClose={this.closeSettingsModal} >
           <Modal.Header>Settings</Modal.Header>

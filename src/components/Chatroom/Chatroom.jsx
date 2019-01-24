@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {createNewCategory, getCategories, createNewChannel, getChannels} from '../../redux/actions/channelActions';
 import {getChatroom} from '../../redux/actions/chatroomActions';
 import ChatMenulPanel from '../ChatMenuPanel/ChatMenuPanel';
+import ChatCommentPanel from '../ChatCommentPanel/ChatCommentPanel';
 
 class Chatroom extends React.Component {
   state = {
@@ -53,6 +54,7 @@ class Chatroom extends React.Component {
           Use the same component, but have the component use a different 
           return component depending on isHome = true/false
          */}
+
         <ChatMenulPanel 
           chatroom={chatroom}
           user={user}
@@ -63,7 +65,9 @@ class Chatroom extends React.Component {
         />
 
         <Grid.Column style={{marginLeft: 320}}>
-          <React.Fragment></React.Fragment>
+          <React.Fragment>
+            <ChatCommentPanel />
+          </React.Fragment>
         </Grid.Column>
         <Grid.Column width={2}>
           <React.Fragment></React.Fragment>
