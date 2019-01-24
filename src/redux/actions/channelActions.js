@@ -50,6 +50,13 @@ export const createNewCategory = category => {
   }
 }
 
+export const getChannel = (chatId, channelId) => {
+  return (dispatch, getState, {getFirestore}) => {
+    console.log('Chat Id: ', chatId);
+    console.log('Channel Id: ', channelId);
+  }
+}
+
 export const getChannels = chatId => {
   return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();

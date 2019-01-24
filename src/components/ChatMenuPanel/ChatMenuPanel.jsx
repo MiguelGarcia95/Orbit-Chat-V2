@@ -1,6 +1,9 @@
 import React from 'react';
 // import {Menu, Grid, Header, Container, Icon, Image, Modal, Segment, Label, Input, Button} from 'semantic-ui-react';
 import {Menu, Modal, Segment, Label, Input, Button} from 'semantic-ui-react';
+import {connect} from 'react-redux';
+
+import {getChannel} from '../../redux/actions/channelActions';
 import HeaderFooter from '../Layout/HeaderFooter';
 import ChannelCategory from '../Layout/ChannelCategory';
 
@@ -40,10 +43,7 @@ class ChatMenuPanel extends React.Component {
   }
 
   displayCategories = (categories) => {
-    //loop thru categories, and then 
-    // fetch matching channels and display them
     return categories.map(category => {
-      // Here goes a fucntion that sorts and returns all matching channels in an array.
       return (
         <ChannelCategory  
           key={category.id}
@@ -91,31 +91,6 @@ class ChatMenuPanel extends React.Component {
 
         {/* Display Chatroom categories + channels */}
         {this.displayCategories(categories)}
-
-        {/* <Menu.Header 
-            as='div'
-            className='Header__footer'
-            content={user && (
-              <Grid columns='equal' >
-                <Grid.Row>
-                  <Grid.Column>
-                    <Image src={user.photoURL} size="mini" spaced='right' avatar circular />
-                  </Grid.Column>
-                  <Grid.Column verticalAlign="middle">
-                    <Container fluid>
-                      {user.displayName}
-                    </Container>
-                  </Grid.Column>
-                  <Grid.Column verticalAlign="middle">
-                    <Container fluid>
-                      <Icon name='cog' size='large' style={{cursor: 'pointer'}} onClick={this.openSettingsModal} />
-                    </Container>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            )}
-          /> */}
-
         
 
         <Modal size='small' basic centered={false} open={settingsModal} onClose={this.closeSettingsModal} >
@@ -139,4 +114,16 @@ class ChatMenuPanel extends React.Component {
   }
 }
 
-export default ChatMenuPanel;
+const mapStateToProps = state => {
+  return {
+    currentChannel: state.channel.currentChannel
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getChannel: (chatId, channelId) => dispatch(getChannel(chatId, channelId))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatMenuPanel);

@@ -3,7 +3,8 @@ import * as actionTypes from '../actions/types';
 const initialState = {
   channels: [],
   categories: [],
-  channelError: null
+  channelError: null,
+  currentChannel: null
 }
 
 export const channelReducer = (state = initialState, action) => {
