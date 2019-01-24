@@ -19,7 +19,7 @@ class ChannelCategory extends React.Component {
   closeModal = () => this.setState({modal: false});
 
   onChannelClick = () => {
-    
+    // this.props.getChannel()
   }
 
   onSubmit = () => {
@@ -44,7 +44,8 @@ class ChannelCategory extends React.Component {
           as='h5' 
           textAlign='left'  
           key={channel.id} 
-          onClick={this.props.getChannel.bind(null, this.state.chatroom.id, channel.id)}
+          // onClick={this.props.getChannel.bind(null, this.state.chatroom.id, channel.id)}
+          onClick={this.props.updateChannel.bind(null, channel)}
           className='category__channel' 
         >
           {channel.channel.name}
