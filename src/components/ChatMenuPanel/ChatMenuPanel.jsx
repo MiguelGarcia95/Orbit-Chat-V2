@@ -3,7 +3,7 @@ import React from 'react';
 import {Menu, Modal, Segment, Label, Input, Button} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 
-import {getChannel} from '../../redux/actions/channelActions';
+import {getChannel, getChannelComments} from '../../redux/actions/channelActions';
 import HeaderFooter from '../Layout/HeaderFooter';
 import ChannelCategory from '../Layout/ChannelCategory';
 
@@ -51,6 +51,7 @@ class ChatMenuPanel extends React.Component {
           user={this.state.user} 
           chatroom={this.state.chatroom}
           getChannel={this.props.getChannel}
+          getChannelComments={this.props.getChannelComments}
         />
       )
     })
@@ -121,7 +122,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getChannel: (chatId, channelId) => dispatch(getChannel(chatId, channelId))
+    getChannel: (chatId, channelId) => dispatch(getChannel(chatId, channelId)),
+    getChannelComments: channelId => dispatch(getChannelComments(channelId))
   }
 }
 

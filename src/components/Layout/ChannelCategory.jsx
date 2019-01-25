@@ -23,6 +23,11 @@ class ChannelCategory extends React.Component {
     this.props.createNewChannel(this.state);
   }
 
+  onChannelClick= channel => {
+    this.props.getChannelComments(channel.id);
+    this.props.getChannel(channel)
+  }
+
   sortChannels = (channels, category) => {
     return channels.reduce(function (filteredChannels, channel) {
       if (channel.channel.categoryId === category.id) {
@@ -40,7 +45,7 @@ class ChannelCategory extends React.Component {
           as='h5' 
           textAlign='left'  
           key={channel.id}
-          onClick={this.props.getChannel.bind(null, channel)}
+          onClick={this.onChannelClick.bind(null, channel)}
           className='category__channel' 
         >
           {channel.channel.name}

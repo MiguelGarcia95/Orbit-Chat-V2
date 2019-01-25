@@ -13,6 +13,12 @@ class MessageForm extends React.Component {
     // image: null
   }
 
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    this.setState({
+      currentChannel: nextProps.currentChannel
+    });
+  }
+
   onChange = (e) => this.setState({[e.target.name]: e.target.value});
 
   sendMessage = () => {
