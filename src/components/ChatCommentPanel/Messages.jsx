@@ -29,10 +29,16 @@ class Messages extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    comments: state.channel.comments
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     getChannelComments: channelId => dispatch(getChannelComments(channelId))
   }
 }
 
-export default connect(null, mapDispatchToProps)(Messages);
+export default connect(mapStateToProps, mapDispatchToProps)(Messages);

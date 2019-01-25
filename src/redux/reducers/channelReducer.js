@@ -49,6 +49,18 @@ export const channelReducer = (state = initialState, action) => {
         channelError: action.payload.channelError,
         currentChannel: action.payload.currentChannel
       }
+    case actionTypes.GET_CHANNEL_COMMENTS:
+      return {
+        ...state,
+        channelError: action.payload.channelError,
+        comments: action.payload.comments
+      }
+    case actionTypes.GET_CHANNEL_COMMENTS_ERROR:
+      return {
+        ...state,
+        channelError: action.payload.channelError,
+        comments: action.payload.comments
+      }
     default:
       return state;
   }

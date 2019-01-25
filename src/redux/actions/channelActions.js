@@ -123,7 +123,7 @@ export const getChannelComments = (channelId) => {
     firestore.collection(`comment/${channelId}/comments`).get().then(data => {
       let comments = [];
       data.forEach(doc => {
-        comments.push({id: doc.id, comment: doc.data})
+        comments.push({id: doc.id, comment: doc.data()})
       });
       dispatch({
         type: actionTypes.GET_CHANNEL_COMMENTS,
