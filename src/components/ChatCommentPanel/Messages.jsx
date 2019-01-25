@@ -18,12 +18,20 @@ class Messages extends React.Component {
     });
   }
 
+  displayComments = comments => {
+    return comments.map(comment => {
+      return (
+        <p key={comment.id}>{comment.comment.message}</p>
+      )
+    })
+  }
+
   render() {
     const {comments} = this.state;
     console.log(comments);
     return (
       <Comment.Group>
-
+        {this.displayComments(comments)}
       </Comment.Group>
     )
   }
