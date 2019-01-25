@@ -5,12 +5,12 @@ import {Menu, Modal, Segment, Label, Input, Button} from 'semantic-ui-react';
 class HomeMenuPanel extends React.Component {
   state = {
     settingsModal: false,
-    user: null
+    // user: null
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    this.setState({user: nextProps.user});
-  }
+  // UNSAFE_componentWillReceiveProps(nextProps) {
+  //   this.setState({user: nextProps.user});
+  // }
 
   onChange = e => this.setState({[e.target.name]: e.target.value});
 
@@ -21,40 +21,13 @@ class HomeMenuPanel extends React.Component {
   }
 
   render() {
-    const  {settingsModal, user} = this.state;
+    const  {settingsModal} = this.state;
     return (
       <Menu
       size='large' 
       fixed='left'
       vertical
-      >
-
-        {/* <Menu.Header 
-            as='div'
-            className='Header__footer'
-            content={user && (
-              <Grid columns='equal' >
-                <Grid.Row>
-                  <Grid.Column>
-                    <Image src={user.photoURL} size="mini" spaced='right' avatar circular />
-                  </Grid.Column>
-                  <Grid.Column verticalAlign="middle">
-                    <Container fluid>
-                      {user.displayName}
-                    </Container>
-                  </Grid.Column>
-                  <Grid.Column verticalAlign="middle">
-                    <Container fluid>
-                      <Icon name='cog' size='large' style={{cursor: 'pointer'}} onClick={this.openSettingsModal} />
-                    </Container>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            )}
-          /> */}
-
-        
-
+      >        
         <Modal size='small' basic centered={false} open={settingsModal} onClose={this.closeSettingsModal} >
           <Modal.Header>Settings</Modal.Header>
           {/* <Modal.Content style={{background: '#232323'}} > */}
