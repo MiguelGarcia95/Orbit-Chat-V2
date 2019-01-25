@@ -127,15 +127,20 @@ export const createChannelComment = comment => {
       channelId: comment.currentChannel.id,
       chatroomId: comment.chatroom.id,
       createdDate: firestore.FieldValue.serverTimestamp()
-    }).then(
+    }).then(() => {
       dispatch({
-        
+        type: actionTypes.CREATE_NEW_CHANNEL,
+        payload: {
+          channelError: null
+        }
       })
-    ).catch(err => {
+    }).catch(err => {
       dispatch({
-
+        type: actionTypes.CREATE_NEW_CHANNEL_ERROR,
+        payload: {
+          channelError: err.message
+        }
       })
     })
-    // console.log(comment)
   }
 }
