@@ -4,6 +4,10 @@ import {getChannelComments} from '../../redux/actions/channelActions';
 import {connect} from 'react-redux';
 
 class Messages extends React.Component {
+  state = {
+    comments: []
+  }
+  
   render() {
     return (
       <Comment.Group>
