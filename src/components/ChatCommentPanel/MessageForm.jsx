@@ -3,16 +3,20 @@ import {Segment, Button, Input} from 'semantic-ui-react';
 
 class MessageForm extends React.Component {
   state = {
-    user: null,
-    channel: null,
-    chatroom: null,
-    category: null,
-    createdAt: null,
-    avatar: null,
+    user: this.props.user,
+    currentChannel: this.props.currentChannel,
+    chatroom: this.props.chatroom,
     comment: null,
-    image: null
+    // category: null,
+    // createdAt: null,
+    // avatar: null,
+    // image: null
   }
   render() {
+    const {user, currentChannel, chatroom} = this.state;
+    console.log('user, ', user);
+    console.log('channel, ', currentChannel);
+    console.log('chatroom, ', chatroom);
     return (
       <Segment className='message__form'>
         <Input

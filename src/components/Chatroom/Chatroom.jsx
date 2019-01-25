@@ -50,11 +50,6 @@ class Chatroom extends React.Component {
           visible
         />
 
-        {/* 
-          Use the same component, but have the component use a different 
-          return component depending on isHome = true/false
-         */}
-
         <ChatMenulPanel 
           chatroom={chatroom}
           user={user}
@@ -66,7 +61,7 @@ class Chatroom extends React.Component {
 
         <Grid.Column style={{marginLeft: 320, padding: '0px'}} >
           <React.Fragment>
-            <ChatCommentPanel  channels={channels} />
+            <ChatCommentPanel  channels={channels} user={user} chatroom={chatroom} />
           </React.Fragment>
         </Grid.Column>
         <Grid.Column width={2}>

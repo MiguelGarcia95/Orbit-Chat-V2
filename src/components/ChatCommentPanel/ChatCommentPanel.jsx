@@ -6,12 +6,16 @@ import MessageForm from './MessageForm';
 
 class ChatCommentPanel extends React.Component {
   state = {
-    currentChannel: null
+    currentChannel: null,
+    user: null,
+    chatroom: null
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({
-      currentChannel: nextProps.currentChannel
+      currentChannel: nextProps.currentChannel,
+      user: nextProps.user,
+      chatroom: nextProps.chatroom
     });
     if (nextProps.currentChannel === null) {
       this.setState({
@@ -21,11 +25,15 @@ class ChatCommentPanel extends React.Component {
   }
 
   render() {
-    const {currentChannel} = this.state;
+    const {currentChannel, user, chatroom} = this.state;
     return (
-      <React.Fragment className='chat__commentPannel'>
+      <React.Fragment>
         {currentChannel && <ChatPanelHeader currentChannel={currentChannel} />}
-        <MessageForm  />
+
+        {currentChannel && user && chatroom && (
+          <MessageForm currentChannel={currentChannel} user={user} chatroom={chatroom}  />
+        )}
+        
       </React.Fragment>
     )
   }
