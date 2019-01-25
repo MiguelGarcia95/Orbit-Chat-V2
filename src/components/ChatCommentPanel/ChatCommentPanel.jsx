@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 // import {Menu, Grid, Container, Header} from 'semantic-ui-react';
 import ChatPanelHeader from './ChatPanelHeader';
 import MessageForm from './MessageForm';
+import Messages from './Messages';
 
 class ChatCommentPanel extends React.Component {
   state = {
@@ -30,10 +31,12 @@ class ChatCommentPanel extends React.Component {
       <React.Fragment>
         {currentChannel && <ChatPanelHeader currentChannel={currentChannel} />}
 
+        <Messages />
+
         {currentChannel && user && chatroom && (
           <MessageForm currentChannel={currentChannel} user={user} chatroom={chatroom}  />
         )}
-        
+
       </React.Fragment>
     )
   }
