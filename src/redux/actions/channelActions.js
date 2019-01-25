@@ -120,7 +120,7 @@ export const createChannelComment = comment => {
   return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
 
-    firestore.add('comment/channelId/comments', {
+    firestore.add(`comment/${comment.currentChannel.id}/comments`, {
       message: comment.message,
       username: comment.user.displayName,
       avatar: comment.user.photoURL,
