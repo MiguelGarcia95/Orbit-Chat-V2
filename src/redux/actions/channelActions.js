@@ -124,7 +124,7 @@ export const getChannelComments = (channelId) => {
       let comments = [];
       data.forEach(doc => {
         comments.push({id: doc.id, comment: doc.data})
-      })
+      });
       console.log(comments);
     })
   }

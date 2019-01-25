@@ -31,7 +31,7 @@ class ChatCommentPanel extends React.Component {
       <React.Fragment>
         {currentChannel && <ChatPanelHeader currentChannel={currentChannel} />}
 
-        <Messages />
+        {currentChannel && <Messages currentChannel={currentChannel} /> }
 
         {currentChannel && user && chatroom && (
           <MessageForm currentChannel={currentChannel} user={user} chatroom={chatroom}  />
