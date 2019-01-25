@@ -9,8 +9,6 @@ class MessageForm extends React.Component {
     currentChannel: this.props.currentChannel,
     chatroom: this.props.chatroom,
     message: null,
-    // category: null,
-    // createdAt: null,
     // avatar: null,
     // image: null
   }
