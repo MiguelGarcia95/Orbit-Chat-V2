@@ -22,10 +22,7 @@ class MessageForm extends React.Component {
   }
 
   render() {
-    const {user, currentChannel, chatroom} = this.state;
-    console.log('user, ', user);
-    console.log('channel, ', currentChannel);
-    console.log('chatroom, ', chatroom);
+    // const {user, currentChannel, chatroom} = this.state;
     return (
       <Segment className='message__form'>
         <Input
