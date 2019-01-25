@@ -125,7 +125,21 @@ export const getChannelComments = (channelId) => {
       data.forEach(doc => {
         comments.push({id: doc.id, comment: doc.data})
       });
-      console.log(comments);
+      dispatch({
+        type: actionTypes.GET_CHANNEL_COMMENTS,
+        payload: {
+          channelError: null,
+          comments: comments
+        }
+      })
+    }).catch(err => {
+      dispatch({
+        type: actionTypes.GET_CHANNEL_COMMENTS_ERROR,
+        payload: {
+          channelError: err.message,
+          comments: []
+        }
+      })
     })
   }
 }
