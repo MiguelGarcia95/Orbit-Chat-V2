@@ -1,14 +1,14 @@
 import React from 'react';
 import {Comment, Image} from 'semantic-ui-react';
 
-const Message = (props) => {
+const Message = ({message}) => {
   return (
     <Comment>
-      <Comment.Avatar src={props.message.avatar} />
+      <Comment.Avatar src={message.avatar} />
       <Comment.Content>
-        <Comment.Author as='a'>{props.message.username}</Comment.Author>
+        <Comment.Author as='a'>{message.username}</Comment.Author>
         {/* <Comment.Metadata></Comment.Metadata> */}
-        <Comment.Text>{props.message.message}</Comment.Text>
+        <Comment.Text>{message.message}</Comment.Text>
       </Comment.Content>
     </Comment>
   )
