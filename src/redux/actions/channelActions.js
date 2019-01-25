@@ -115,3 +115,10 @@ export const getCategories = chatId => {
     })
   }
 }
+
+export const createChannelComment = comment => {
+  return (dispatch, getState, {getFirestore}) => {
+    const firestore = getFirestore();
+    console.log(comment)
+  }
+}

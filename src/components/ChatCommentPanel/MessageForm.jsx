@@ -1,17 +1,26 @@
 import React from 'react';
 import {Segment, Button, Input} from 'semantic-ui-react';
+import {connect} from 'react-redux';
+import {createChannelComment} from '../../redux/actions/channelActions';
 
 class MessageForm extends React.Component {
   state = {
     user: this.props.user,
     currentChannel: this.props.currentChannel,
     chatroom: this.props.chatroom,
-    comment: null,
+    message: null,
     // category: null,
     // createdAt: null,
     // avatar: null,
     // image: null
   }
+
+  onChange = (e) => this.setState({[e.target.name]: e.target.value});
+
+  sendMessage = () => {
+    this.props.createChannelComment(this.state)
+  }
+
   render() {
     const {user, currentChannel, chatroom} = this.state;
     console.log('user, ', user);
@@ -22,14 +31,14 @@ class MessageForm extends React.Component {
         <Input
           fluid
           name='message'
-          // onChange={this.handleChange}
+          onChange={this.onChange}
           style={{marginBottom: '0.7em'}}
           labelPosition='left'
           placeholder='Write your message'
         />
         <Button.Group icon widths='2'>
           <Button
-            // onClick={this.sendMessage}
+            onClick={this.sendMessage}
             color='blue'
             content='Add Comment'
             labelPosition='left'
@@ -48,4 +57,10 @@ class MessageForm extends React.Component {
   }
 }
 
-export default MessageForm;
+const mapDispatchToProps = dispatch => {
+  return {
+    createChannelComment: user => dispatch(createChannelComment(user))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(MessageForm);
