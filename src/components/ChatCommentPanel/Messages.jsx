@@ -19,10 +19,6 @@ class Messages extends React.Component {
     this.setState({
       comments: nextProps.comments
     });
-    // if (nextProps.comments[0].comment.channelId !== this.state.currentChannelId) {
-    //   this.props.getChannelComments(this.props.currentChannel.id);
-    //   this.setState({currentChannelId: nextProps.comments[0].comment.channelId});
-    // }
   }
 
   displayComments = comments => {
@@ -35,7 +31,7 @@ class Messages extends React.Component {
 
   render() {
     const {comments} = this.state;
-    console.log(comments)
+    // console.log(comments)
     return (
       <Comment.Group>
         {this.displayComments(comments)}
