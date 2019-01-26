@@ -41,6 +41,14 @@ html, body, .app {
   color: #232323;
 }
 
+.messages {
+  height: 64vh;
+  overflow-y: scroll;
+  width: 100%; 
+  padding: 1rem;
+
+}
+
 .Header__footer {
   text-align: center; 
   padding: 10px 0px; 
