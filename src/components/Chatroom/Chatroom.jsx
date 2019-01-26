@@ -37,11 +37,11 @@ class Chatroom extends React.Component {
       channels: nextProps.channels
     });
 
-    if (this.props.match.params.roomId !== this.state.currentRoomId) {
-      this.props.getChatroom(this.props.match.params.roomId);
-      this.props.getCategories(this.props.match.params.roomId);
-      this.props.getChannels(this.props.match.params.roomId);
-      this.setState({currentRoomId: this.props.match.params.roomId})
+    if (nextProps.match.params.roomId !== this.state.currentRoomId) {
+      this.props.getChatroom(nextProps.match.params.roomId);
+      this.props.getCategories(nextProps.match.params.roomId);
+      this.props.getChannels(nextProps.match.params.roomId);
+      this.setState({currentRoomId: nextProps.match.params.roomId})
     }
   }
 
