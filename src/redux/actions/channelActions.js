@@ -56,7 +56,8 @@ export const getChannel = channel => {
       type: actionTypes.GET_CHANNEL,
       payload: {
         channelError: null,
-        currentChannel: channel
+        currentChannel: channel,
+        isLoading: true
       }
     })
   }
@@ -129,7 +130,8 @@ export const getChannelComments = (channelId) => {
         type: actionTypes.GET_CHANNEL_COMMENTS,
         payload: {
           channelError: null,
-          comments: comments
+          comments: comments,
+          isLoading: false
         }
       })
     }).catch(err => {
@@ -137,7 +139,8 @@ export const getChannelComments = (channelId) => {
         type: actionTypes.GET_CHANNEL_COMMENTS_ERROR,
         payload: {
           channelError: err.message,
-          comments: []
+          comments: [],
+          isLoading: false
         }
       })
     })
