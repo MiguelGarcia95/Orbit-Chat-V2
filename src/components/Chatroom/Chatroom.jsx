@@ -13,7 +13,8 @@ class Chatroom extends React.Component {
     chatroom: null,
     user: null,
     categories: [],
-    channels: []
+    channels: [],
+    currentRoomId: ''
   }
 
   componentDidMount() {
@@ -22,6 +23,7 @@ class Chatroom extends React.Component {
         this.props.history.push('/login');
       }
     })
+    this.setState({currentRoomId: this.props.match.params.roomId})
     this.props.getChatroom(this.props.match.params.roomId);
     this.props.getCategories(this.props.match.params.roomId);
     this.props.getChannels(this.props.match.params.roomId);
@@ -34,6 +36,13 @@ class Chatroom extends React.Component {
       categories: nextProps.categories,
       channels: nextProps.channels
     });
+
+    if (this.props.match.params.roomId !== this.state.currentRoomId) {
+      this.props.getChatroom(this.props.match.params.roomId);
+      this.props.getCategories(this.props.match.params.roomId);
+      this.props.getChannels(this.props.match.params.roomId);
+      this.setState({currentRoomId: this.props.match.params.roomId})
+    }
   }
 
   render() {
