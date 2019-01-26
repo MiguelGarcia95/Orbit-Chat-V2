@@ -44,7 +44,8 @@ html, body, .app {
 .messages {
   height: 64vh;
   overflow-y: scroll;
-  width: 100%; 
+  width: 100% !important; 
+  max-width: 100% !important;
   padding: 1rem;
 
 }
