@@ -8,7 +8,8 @@ import MessagesLoading from './MessagesLoading';
 class Messages extends React.Component {
   state = {
     comments: [],
-    currentChannelId: ''
+    currentChannelId: '',
+    isLoadingArray: ['','','','','','']
   }
 
   componentDidMount() {
@@ -23,17 +24,19 @@ class Messages extends React.Component {
   }
 
   displayComments = comments => {
-    return comments.map(comment => {
-      if (this.props.isChannelLoading) {
+    if (this.props.isChannelLoading) {
+      return this.state.isLoadingArray.map((comment, i) => {
         return (
-          <MessagesLoading  />
+          <MessagesLoading key={i} />
         )
-      } else {
+      })
+    } else {
+      return comments.map(comment => {
         return (
           <Message key={comment.id} message={comment.comment} />
         )
-      }
-    })
+      })
+    }
   }
 
   render() {
