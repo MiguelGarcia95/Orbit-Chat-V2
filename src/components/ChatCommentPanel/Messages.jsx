@@ -31,6 +31,7 @@ class Messages extends React.Component {
 
   render() {
     const {comments} = this.state;
+    console.log(this.props.isChannelLoading)
     return (
       <Comment.Group className='messages' >
         {this.displayComments(comments)}
@@ -41,7 +42,8 @@ class Messages extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    comments: state.channel.comments
+    comments: state.channel.comments,
+    isChannelLoading: state.channel.isChannelLoading
   }
 }
 
