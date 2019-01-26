@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Skeleton = () => {
+const MessageLoading = () => {
   return (
     <div className="skeleton">
       <div className="skeleton__avatar"></div>
@@ -9,3 +9,5 @@ const Skeleton = () => {
     </div>
   )
 }
+
+export default MessageLoading;

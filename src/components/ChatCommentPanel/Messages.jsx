@@ -3,6 +3,7 @@ import {Comment} from 'semantic-ui-react';
 import {getChannelComments} from '../../redux/actions/channelActions';
 import {connect} from 'react-redux';
 import Message from './Message';
+import MessagesLoading from './MessagesLoading';
 
 class Messages extends React.Component {
   state = {
@@ -23,15 +24,20 @@ class Messages extends React.Component {
 
   displayComments = comments => {
     return comments.map(comment => {
-      return (
-        <Message key={comment.id} message={comment.comment} />
-      )
+      if (this.props.isChannelLoading) {
+        return (
+          <MessagesLoading  />
+        )
+      } else {
+        return (
+          <Message key={comment.id} message={comment.comment} />
+        )
+      }
     })
   }
 
   render() {
     const {comments} = this.state;
-    console.log(this.props.isChannelLoading)
     return (
       <Comment.Group className='messages' >
         {this.displayComments(comments)}
