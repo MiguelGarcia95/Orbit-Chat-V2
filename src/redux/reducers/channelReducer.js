@@ -4,7 +4,8 @@ const initialState = {
   channels: [],
   categories: [],
   channelError: null,
-  currentChannel: null
+  currentChannel: null,
+  isChannelLoading: true
 }
 
 export const channelReducer = (state = initialState, action) => {
@@ -47,19 +48,22 @@ export const channelReducer = (state = initialState, action) => {
       return {
         ...state,
         channelError: action.payload.channelError,
-        currentChannel: action.payload.currentChannel
+        currentChannel: action.payload.currentChannel,
+        isChannelLoading: action.payload.isChannelLoading
       }
     case actionTypes.GET_CHANNEL_COMMENTS:
       return {
         ...state,
         channelError: action.payload.channelError,
-        comments: action.payload.comments
+        comments: action.payload.comments,
+        isChannelLoading: action.payload.isChannelLoading
       }
     case actionTypes.GET_CHANNEL_COMMENTS_ERROR:
       return {
         ...state,
         channelError: action.payload.channelError,
-        comments: action.payload.comments
+        comments: action.payload.comments,
+        isChannelLoading: action.payload.isChannelLoading
       }
     default:
       return state;
