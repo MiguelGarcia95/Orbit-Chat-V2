@@ -31,7 +31,6 @@ class Messages extends React.Component {
 
   render() {
     const {comments} = this.state;
-    // console.log(comments)
     return (
       <Comment.Group className='messages' >
         {this.displayComments(comments)}
