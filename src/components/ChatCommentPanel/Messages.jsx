@@ -21,6 +21,7 @@ class Messages extends React.Component {
     this.setState({
       comments: nextProps.comments
     });
+    // this.props.getChannelComments(this.props.currentChannel.id);
   }
 
   displayComments = comments => {
