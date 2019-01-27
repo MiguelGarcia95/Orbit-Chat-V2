@@ -3,7 +3,7 @@ import firebase from '../../firebase';
 import {Grid, Sidebar, Menu} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 
-import {createNewCategory, getCategories, createNewChannel, getChannels} from '../../redux/actions/channelActions';
+import {createNewCategory, getCategories, createNewChannel, getChannels, getChannelComments} from '../../redux/actions/channelActions';
 import {getChatroom} from '../../redux/actions/chatroomActions';
 import ChatMenulPanel from '../ChatMenuPanel/ChatMenuPanel';
 import ChatCommentPanel from '../ChatCommentPanel/ChatCommentPanel';
@@ -36,6 +36,17 @@ class Chatroom extends React.Component {
       categories: nextProps.categories,
       channels: nextProps.channels
     });
+
+    // console.log('from incoming props, ', this.state.currentRoomId);
+    if (nextProps.channels.length > 0 && this.state.channels.length > 0) {
+      // console.log('incoming stuff, ', nextProps.channels);
+      // console.log('state stuff, ', this.state.channels);
+      this.props.getChannelComments(nextProps.channels[0].id)
+      // nextProps.channels[0].id
+
+      // console.log('incoming stuff, ', nextProps.channels[0].id);
+      // console.log('state stuff, ', this.state.channels[0].id);
+    }
 
     if (nextProps.match.params.roomId !== this.state.currentRoomId) {
       this.props.getChatroom(nextProps.match.params.roomId);
@@ -95,7 +106,8 @@ const mapDispatchToProps = dispatch => {
     createNewCategory: category => dispatch(createNewCategory(category)),
     getCategories: id => dispatch(getCategories(id)),
     createNewChannel: channel => dispatch(createNewChannel(channel)),
-    getChannels: id => dispatch(getChannels(id))
+    getChannels: id => dispatch(getChannels(id)),
+    getChannelComments: channelId => dispatch(getChannelComments(channelId))
   }
 }
 
