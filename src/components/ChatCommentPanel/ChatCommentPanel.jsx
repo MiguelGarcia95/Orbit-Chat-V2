@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 // import {Menu, Grid, Container, Header} from 'semantic-ui-react';
+import {getChannelComments} from '../../redux/actions/channelActions';
+
 import ChatPanelHeader from './ChatPanelHeader';
 import MessageForm from './MessageForm';
 import Messages from './Messages';
@@ -19,14 +21,19 @@ class ChatCommentPanel extends React.Component {
       chatroom: nextProps.chatroom
     });
     if (nextProps.currentChannel === null) {
-      this.setState({
-        currentChannel: nextProps.channels[nextProps.channels.length - 1]
-      })
+      if (nextProps.channels[nextProps.channels.length - 1]) {
+        this.setState({
+          currentChannel: nextProps.channels[nextProps.channels.length - 1]
+        })
+        this.props.getChannelComments(nextProps.channels[nextProps.channels.length - 1].id)
+      }
     }
+    console.log(nextProps.channels[nextProps.channels.length - 1])
   }
 
   render() {
     const {currentChannel, user, chatroom} = this.state;
+    // console.log(currentChannel)
     return (
       <React.Fragment>
         {currentChannel && <ChatPanelHeader currentChannel={currentChannel} />}

@@ -41,7 +41,8 @@ class Chatroom extends React.Component {
     if (nextProps.channels.length > 0 && this.state.channels.length > 0) {
       // console.log('incoming stuff, ', nextProps.channels);
       // console.log('state stuff, ', this.state.channels);
-      this.props.getChannelComments(nextProps.channels[0].id)
+
+      // this.props.getChannelComments(nextProps.channels[0].id)
       // nextProps.channels[0].id
 
       // console.log('incoming stuff, ', nextProps.channels[0].id);
@@ -52,7 +53,7 @@ class Chatroom extends React.Component {
       this.props.getChatroom(nextProps.match.params.roomId);
       this.props.getCategories(nextProps.match.params.roomId);
       this.props.getChannels(nextProps.match.params.roomId);
-      this.setState({currentRoomId: nextProps.match.params.roomId})
+      this.setState({currentRoomId: nextProps.match.params.roomId, channels: nextProps.channels})
     }
   }
 
@@ -81,7 +82,7 @@ class Chatroom extends React.Component {
 
         <Grid.Column style={{marginLeft: 320, padding: '0px'}} >
           <React.Fragment>
-            <ChatCommentPanel  channels={channels} user={user} chatroom={chatroom} />
+            <ChatCommentPanel  channels={channels} user={user} chatroom={chatroom} getChannelComments={this.props.getChannelComments} />
           </React.Fragment>
         </Grid.Column>
         <Grid.Column width={2}>

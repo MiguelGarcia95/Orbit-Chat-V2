@@ -57,6 +57,7 @@ class ChannelCategory extends React.Component {
   render() {
     const {category, channels} = this.props;
     const {modal} = this.state;
+    console.log(this.props.currentChannel)
     return (
       <React.Fragment>
         <Grid  >
@@ -92,10 +93,16 @@ class ChannelCategory extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    currentChannel: state.channel.currentChannel
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     createNewChannel: channel => dispatch(createNewChannel(channel))
   }
 }
 
-export default connect(null, mapDispatchToProps)(ChannelCategory);
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelCategory);
